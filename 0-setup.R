@@ -6,9 +6,11 @@ create_dir <- function(dir) {
 }
 
 data_dir <- "data"
+kallisto <- file.path(data_dir, "kallisto")
+hisat <- file.path(data_dir, "hisat2")
 figure_dir <- "figures"
 results_dir <- "results"
 
-dirs <- c(data_dir, figure_dir, results_dir)
+dirs <- c(kallisto, hisat, figure_dir, results_dir)
 
 sapply(dirs, create_dir)
