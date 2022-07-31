@@ -12,7 +12,14 @@ figure_dir <- "figures"
 results_dir <- "results"
 kallisto_res <- file.path(results_dir, "kallisto")
 hisat_res <- file.path(results_dir, "hisat2")
+kallisto_fig <- file.path(figure_dir, "kallisto")
+hisat_fig <- file.path(figure_dir, "hisat2")
 
-dirs <- c(kallisto, hisat, figure_dir, results_dir, kallisto_res, hisat_res)
+dirs <- c(kallisto,
+          hisat,
+          kallisto_res,
+          hisat_res,
+          kallisto_fig,
+          hisat_fig)
 
 sapply(dirs, create_dir)
