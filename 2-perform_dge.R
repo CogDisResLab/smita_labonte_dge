@@ -13,10 +13,11 @@ perform_dge <- function(filename, aligner = "kallisto") {
   count_data <- read_csv(filepath, show_col_types = FALSE)
 
   metadata <- read_csv("data/GSE102556-metadata.csv", show_col_types = FALSE) |>
-    select(Run, phenotype, gender) |>
+    select(Run, phenotype, gender, medication) |>
+    mutate(medication = if_else(is.na(medication), "Unknown", str_to_title(medication))) |>
     filter(Run %in% names(count_data)) |>
     arrange(phenotype, gender) |>
-    mutate(group = str_c(gender, phenotype, sep = "_"),
+    mutate(group = str_c(gender, phenotype, medication, sep = "_"),
            rowname = Run) |>
     column_to_rownames()
 
@@ -46,19 +47,22 @@ perform_contrasts <- function(fit_obj) {
   design <- fit_obj$design
 
   contrast <- makeContrasts(
-    male = groupmale_MDD - groupmale_CTRL,
-    female = groupfemale_MDD - groupfemale_CTRL,
-    overall = (groupmale_MDD + groupfemale_MDD) - (groupmale_CTRL + groupfemale_CTRL),
+    male = (groupmale_MDD_Yes + groupmale_MDD_No + groupmale_MDD_Unknown) - (groupmale_CTRL_No + groupmale_CTRL_Unknown),
+    female = (groupfemale_MDD_Yes + groupfemale_MDD_No + groupfemale_MDD_Unknown) - (groupfemale_CTRL_Yes + groupfemale_CTRL_No + groupfemale_CTRL_Unknown),
+    overall = (groupmale_MDD_Yes + groupmale_MDD_No + groupmale_MDD_Unknown + groupfemale_MDD_Yes + groupfemale_MDD_No + groupfemale_MDD_Unknown) - (groupmale_CTRL_No + groupmale_CTRL_Unknown + groupfemale_CTRL_Yes + groupfemale_CTRL_No + groupfemale_CTRL_Unknown),
+    mdd_medication = (groupfemale_MDD_Yes + groupmale_MDD_Yes) - (groupmale_MDD_No + groupfemale_MDD_No),
     levels = design)
 
   male_dge <- glmQLFTest(fit_obj, contrast = contrast[, "male"])
   female_dge <- glmQLFTest(fit_obj, contrast = contrast[, "female"])
   overall_dge <- glmQLFTest(fit_obj, contrast = contrast[, "overall"])
+  medication_dge <- glmQLFTest(fit_obj, contrast = contrast[, "mdd_medication"])
 
   out <- list(
     male_dge = topTags(male_dge, n = Inf)$table,
     female_dge = topTags(female_dge, n = Inf)$table,
-    overall_dge = topTags(overall_dge, n = Inf)$table
+    overall_dge = topTags(overall_dge, n = Inf)$table,
+    medication_dge = topTags(medication_dge, n = Inf)$table
   )
 
   out
@@ -74,7 +78,7 @@ files_kallisto <- files_kallisto |> set_names(brain_regions)
 
 result <- files_kallisto |>
   map(~ perform_dge(.x)) |>
-  map(~ perform_contrasts(.x)) |>
+  map(~ safely(perform_contrasts(.x))) |>
   unlist(recursive = FALSE) |>
   imap(~ write_csv(
     .x,
