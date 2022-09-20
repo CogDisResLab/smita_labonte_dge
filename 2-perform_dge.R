@@ -4,7 +4,6 @@ library(tidyverse)
 library(edgeR)
 
 perform_dge <- function(filename, aligner = "kallisto") {
-
   filepath <- file.path("data", aligner, filename)
 
   brain_region <- filename |>
@@ -12,9 +11,17 @@ perform_dge <- function(filename, aligner = "kallisto") {
 
   count_data <- read_csv(filepath, show_col_types = FALSE)
 
-  metadata <- read_csv("data/GSE102556-metadata.csv", show_col_types = FALSE) |>
+  metadata <-
+    read_csv("data/GSE102556-metadata.csv", show_col_types = FALSE) |>
     select(Run, phenotype, gender, medication) |>
-    mutate(medication = if_else(is.na(medication), "Unknown", str_to_title(medication))) |>
+    mutate(
+      medication = case_when(
+        medication == "yes" ~ "on",
+        medication == "no" ~ "off",
+        is.na(medication) ~ "na",
+        TRUE ~ NA_character_
+      )
+    ) |>
     filter(Run %in% names(count_data)) |>
     arrange(phenotype, gender) |>
     mutate(group = str_c(gender, phenotype, medication, sep = "_"),
@@ -25,11 +32,17 @@ perform_dge <- function(filename, aligner = "kallisto") {
     select(SYMBOL, all_of(metadata$Run))
 
 
-  dge <- DGEList(count = count_subset[,2:ncol(count_subset)], samples = metadata, genes = count_subset[1], group = metadata$group)
+  dge <-
+    DGEList(
+      count = count_subset[, 2:ncol(count_subset)],
+      samples = metadata,
+      genes = count_subset[1],
+      group = metadata$group
+    )
 
   keep <- filterByExpr(dge)
 
-  dge_filtered <- dge[keep, ,keep.lib.sizes=FALSE]
+  dge_filtered <- dge[keep, , keep.lib.sizes = FALSE]
 
   design_frame <- model.frame(~ 0 + group, data = metadata)
 
@@ -42,21 +55,58 @@ perform_dge <- function(filename, aligner = "kallisto") {
   fit <- glmQLFit(dge_filtered, design = design)
 }
 
-perform_contrasts <- function(fit_obj) {
+get_specified_groups <-
+  function(design,
+           phenotype,
+           sex = NULL,
+           medication = NULL) {
+    group_names <- colnames(design)
 
+    p <- str_detect(group_names, phenotype)
+
+    if (!is.null(sex)) {
+      s <- str_detect(group_names, str_c("group", sex))
+    } else {
+      s <- rep(TRUE, length(p))
+    }
+
+    if (!is.null(medication)) {
+      m <- str_detect(group_names, medication)
+    } else {
+      m <- rep(TRUE, length(p))
+    }
+
+    selected <- group_names[p & s & m]
+
+    str_c(selected, collapse = " + ")
+
+  }
+
+perform_contrasts <- function(fit_obj) {
   design <- fit_obj$design
 
   contrast <- makeContrasts(
-    male = (groupmale_MDD_Yes + groupmale_MDD_No + groupmale_MDD_Unknown) - (groupmale_CTRL_No + groupmale_CTRL_Unknown),
-    female = (groupfemale_MDD_Yes + groupfemale_MDD_No + groupfemale_MDD_Unknown) - (groupfemale_CTRL_Yes + groupfemale_CTRL_No + groupfemale_CTRL_Unknown),
-    overall = (groupmale_MDD_Yes + groupmale_MDD_No + groupmale_MDD_Unknown + groupfemale_MDD_Yes + groupfemale_MDD_No + groupfemale_MDD_Unknown) - (groupmale_CTRL_No + groupmale_CTRL_Unknown + groupfemale_CTRL_Yes + groupfemale_CTRL_No + groupfemale_CTRL_Unknown),
-    mdd_medication = (groupfemale_MDD_Yes + groupmale_MDD_Yes) - (groupmale_MDD_No + groupfemale_MDD_No),
-    levels = design)
+    contrasts = c(
+      med = str_glue(
+        '{get_specified_groups(design, "MDD", medication = "on")} - {get_specified_groups(design, "MDD", medication = "off")}'
+      ),
+      male = str_glue(
+        '{get_specified_groups(design, "MDD", "male")} - {get_specified_groups(design, "CTRL", "male")}'
+      ),
+      female = str_glue(
+        '{get_specified_groups(design, "MDD", "female")} - {get_specified_groups(design, "CTRL", "female")}'
+      ),
+      overall = str_glue(
+        '{get_specified_groups(design, "MDD")} - {get_specified_groups(design, "CTRL")}'
+      )
+    ),
+    levels = design
+  )
 
-  male_dge <- glmQLFTest(fit_obj, contrast = contrast[, "male"])
-  female_dge <- glmQLFTest(fit_obj, contrast = contrast[, "female"])
-  overall_dge <- glmQLFTest(fit_obj, contrast = contrast[, "overall"])
-  medication_dge <- glmQLFTest(fit_obj, contrast = contrast[, "mdd_medication"])
+  male_dge <- glmQLFTest(fit_obj, contrast = contrast[, 2])
+  female_dge <- glmQLFTest(fit_obj, contrast = contrast[, 3])
+  overall_dge <- glmQLFTest(fit_obj, contrast = contrast[, 4])
+  medication_dge <- glmQLFTest(fit_obj, contrast = contrast[, 1])
 
   out <- list(
     male_dge = topTags(male_dge, n = Inf)$table,
@@ -78,13 +128,11 @@ files_kallisto <- files_kallisto |> set_names(brain_regions)
 
 result <- files_kallisto |>
   map(~ perform_dge(.x)) |>
-  map(~ safely(perform_contrasts(.x))) |>
+  map(~ perform_contrasts(.x)) |>
   unlist(recursive = FALSE) |>
-  imap(~ write_csv(
-    .x,
-    file.path(
-      "results",
-      "kallisto",
-      str_glue('{str_replace(.y, "\\\\.", "_")}.csv')
-    )
-  ))
+  imap(~ write_csv(.x,
+                   file.path(
+                     "results",
+                     "kallisto",
+                     str_glue('{str_replace(.y, "\\\\.", "_")}.csv')
+                   )))
