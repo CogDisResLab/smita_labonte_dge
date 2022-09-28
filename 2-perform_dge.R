@@ -34,7 +34,7 @@ perform_dge <- function(filename, aligner = "kallisto") {
 
   dge <-
     DGEList(
-      count = count_subset[, 2:ncol(count_subset)],
+      counts = count_subset[, 2:ncol(count_subset)],
       samples = metadata,
       genes = count_subset[1],
       group = metadata$group
@@ -88,25 +88,25 @@ perform_contrasts <- function(fit_obj) {
   contrast <- makeContrasts(
     contrasts = c(
       med = str_glue(
-        '{get_specified_groups(design, "MDD", medication = "on")} - {get_specified_groups(design, "MDD", medication = "off")}'
+        '(({get_specified_groups(design, "MDD", medication = "on")}) / 2) - ({get_specified_groups(design, "MDD", medication = "off")})'
       ),
       male = str_glue(
-        '{get_specified_groups(design, "MDD", "male")} - {get_specified_groups(design, "CTRL", "male")}'
+        '({get_specified_groups(design, "MDD", "male")}) - ({get_specified_groups(design, "CTRL", "male")})'
       ),
       female = str_glue(
-        '{get_specified_groups(design, "MDD", "female")} - {get_specified_groups(design, "CTRL", "female")}'
+        '({get_specified_groups(design, "MDD", "female")}) - ({get_specified_groups(design, "CTRL", "female")})'
       ),
       overall = str_glue(
-        '{get_specified_groups(design, "MDD")} - {get_specified_groups(design, "CTRL")}'
+        '({get_specified_groups(design, "MDD")}) - ({get_specified_groups(design, "CTRL")})'
       )
     ),
     levels = design
   )
 
+  medication_dge <- glmQLFTest(fit_obj, contrast = contrast[, 1])
   male_dge <- glmQLFTest(fit_obj, contrast = contrast[, 2])
   female_dge <- glmQLFTest(fit_obj, contrast = contrast[, 3])
   overall_dge <- glmQLFTest(fit_obj, contrast = contrast[, 4])
-  medication_dge <- glmQLFTest(fit_obj, contrast = contrast[, 1])
 
   out <- list(
     male_dge = topTags(male_dge, n = Inf)$table,
