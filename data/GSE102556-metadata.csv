@@ -1,266 +1,266 @@
-Run,tissue,phenotype,gender,drugs,Cause_of_death,medication,medication_type,ph,pmi,rin
-SRR5961796,Orbitofrontal (OFC; BA11),CTRL,male,no,Natural,no,no,6.49,12,7.9
-SRR5961797,Orbitofrontal (OFC; BA11),CTRL,male,no,Natural,no,no,6,24,6.8
-SRR5961798,Orbitofrontal (OFC; BA11),CTRL,male,no,Accident,no,no,6.67,29.5,7.1
-SRR5961799,Orbitofrontal (OFC; BA11),CTRL,male,NA,Suicide,no,no,6.74,27.75,6.7
-SRR5961800,Orbitofrontal (OFC; BA11),CTRL,male,no,Natural,no,no,6.42,19.5,7.7
-SRR5961801,Orbitofrontal (OFC; BA11),CTRL,male,NA,Suicide,no,no,6.26,29.75,5.8
-SRR5961802,Orbitofrontal (OFC; BA11),MDD,male,no,Suicide,NA,NA,6.57,32,7
-SRR5961803,Orbitofrontal (OFC; BA11),CTRL,male,yes,Suicide,NA,NA,6.68,18,7.8
-SRR5961804,Orbitofrontal (OFC; BA11),CTRL,male,NA,Suicide,NA,NA,6.84,44.5,6.8
-SRR5961805,Orbitofrontal (OFC; BA11),MDD,male,no,Suicide,NA,NA,6.91,33.5,8
-SRR5961806,Orbitofrontal (OFC; BA11),MDD,male,no,Suicide,yes,AD,6,19,4.8
-SRR5961807,Orbitofrontal (OFC; BA11),CTRL,male,no,Accident,no,no,6.75,24,7.5
-SRR5961808,Orbitofrontal (OFC; BA11),MDD,male,NA,Suicide,NA,NA,6.86,30,7.5
-SRR5961809,Orbitofrontal (OFC; BA11),MDD,female,NA,Suicide,NA,NA,6.73,20,7.4
-SRR5961810,Orbitofrontal (OFC; BA11),MDD,male,no,Suicide,yes,anticonvulsivant,6.68,24,7.4
-SRR5961811,Orbitofrontal (OFC; BA11),MDD,male,NA,Suicide,no,no,6.93,36,6.1
-SRR5961812,Orbitofrontal (OFC; BA11),MDD,female,NA,Suicide,yes,AP,6.53,15,6.9
-SRR5961813,Orbitofrontal (OFC; BA11),MDD,female,No,Suicide,yes,AD,6.79,36,6.9
-SRR5961814,Orbitofrontal (OFC; BA11),CTRL,female,NA,Suicide,yes,AD,6.73,29.5,7.3
-SRR5961815,Orbitofrontal (OFC; BA11),MDD,male,no,Suicide,no,no,6.96,27,5.7
-SRR5961816,Orbitofrontal (OFC; BA11),MDD,male,no,Suicide,NA,NA,6.93,32,8.8
-SRR5961817,Orbitofrontal (OFC; BA11),MDD,male,no,Suicide,yes,AD,6.37,18.5,6.8
-SRR5961818,Orbitofrontal (OFC; BA11),MDD,female,NA,Suicide,yes,AD,6.81,49.5,7.8
-SRR5961819,Orbitofrontal (OFC; BA11),MDD,male,no,Suicide,yes,NA,6.95,50,6.5
-SRR5961820,Orbitofrontal (OFC; BA11),MDD,female,NA,Suicide,yes,AP,6.55,56,6.2
-SRR5961821,Orbitofrontal (OFC; BA11),MDD,female,No,Suicide,yes,AD,6.77,28.5,8.3
-SRR5961822,Orbitofrontal (OFC; BA11),MDD,male,no,Suicide,no,no,6.56,49,7.9
-SRR5961823,Orbitofrontal (OFC; BA11),MDD,male,no,Suicide,no,no,6.85,56,6.8
-SRR5961824,Orbitofrontal (OFC; BA11),CTRL,male,no,Suicide,no,no,6.83,59,6.1
-SRR5961825,Orbitofrontal (OFC; BA11),MDD,female,NA,Suicide,yes,AD,6.89,41,8.2
-SRR5961826,Orbitofrontal (OFC; BA11),CTRL,male,NA,Natural,no,no,6.11,10,5.7
-SRR5961827,Orbitofrontal (OFC; BA11),MDD,female,No,Suicide,yes,Lithium,6.5,2.5,8.5
-SRR5961828,Orbitofrontal (OFC; BA11),CTRL,female,no,Accident,no,no,6.4,7.5,6.8
-SRR5961829,Orbitofrontal (OFC; BA11),MDD,male,no,Suicide,yes,AD,6.25,6.5,9.1
-SRR5961830,Orbitofrontal (OFC; BA11),CTRL,female,no,Natural,no,no,6.1,17,5.7
-SRR5961831,Orbitofrontal (OFC; BA11),MDD,female,NA,Suicide,NA,NA,6.7,12,6.7
-SRR5961832,Orbitofrontal (OFC; BA11),CTRL,male,NA,Suicide,NA,NA,6.4,4,8
-SRR5961833,Orbitofrontal (OFC; BA11),CTRL,female,no,Suicide,yes,AD,6.5,44,7.4
-SRR5961834,Orbitofrontal (OFC; BA11),MDD,female,NA,Suicide,NA,NA,6.5,17.5,8
-SRR5961835,Orbitofrontal (OFC; BA11),CTRL,female,NA,Natural,NA,NA,7,106,8
-SRR5961836,Orbitofrontal (OFC; BA11),MDD,female,No,Suicide,yes,Lithium,6.9,7.5,7.6
-SRR5961837,Orbitofrontal (OFC; BA11),MDD,female,NA,Suicide,NA,NA,6.5,4.5,8.3
-SRR5961838,Orbitofrontal (OFC; BA11),CTRL,female,no,Suicide,no,no,6.7,38,7.9
-SRR5961839,Orbitofrontal (OFC; BA11),CTRL,female,NA,Suicide,no,no,7,2,6.1
-SRR5961840,Orbitofrontal (OFC; BA11),CTRL,female,NA,Natural,NA,NA,6.21,8.5,8.3
-SRR5961841,Orbitofrontal (OFC; BA11),MDD,female,NA,Suicide,yes,AD,6.27,3,7.3
-SRR5961842,Orbitofrontal (OFC; BA11),CTRL,male,NA,Accident,NA,NA,6.76,23.5,7.4
-SRR5961843,Orbitofrontal (OFC; BA11),CTRL,female,no,Suicide,no,no,6.71,16,8.3
-SRR5961844,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,no,Natural,no,no,6.49,12,7.8
-SRR5961845,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,no,Natural,no,no,6,24,7.6
-SRR5961846,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,no,Accident,no,no,6.67,29.5,6.9
-SRR5961847,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,NA,Suicide,no,no,6.74,27.75,7.7
-SRR5961848,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,no,Natural,no,no,6.42,19.5,7.7
-SRR5961849,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,NA,Suicide,no,no,6.26,29.75,6.5
-SRR5961850,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,no,Suicide,NA,NA,6.57,32,7.8
-SRR5961851,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,yes,Suicide,NA,NA,6.68,18,7.2
-SRR5961852,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,NA,Suicide,NA,NA,6.84,44.5,7.2
-SRR5961853,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,no,Suicide,NA,NA,6.91,33.5,7.7
-SRR5961854,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,no,Suicide,yes,AD,6,19,6.6
-SRR5961855,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,no,Accident,no,no,6.75,24,7.2
-SRR5961856,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,NA,Suicide,NA,NA,6.86,30,6.9
-SRR5961857,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,NA,Suicide,NA,NA,6.73,20,7.2
-SRR5961858,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,no,Suicide,yes,anticonvulsivant,6.68,24,6.8
-SRR5961859,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,NA,Suicide,no,no,6.93,36,5.6
-SRR5961860,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,NA,Suicide,yes,AP,6.53,15,7.5
-SRR5961861,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,No,Suicide,yes,AD,6.79,36,7.5
-SRR5961862,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,female,NA,Suicide,yes,AD,6.73,29.5,6.9
-SRR5961863,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,no,Suicide,no,no,6.96,27,7.6
-SRR5961864,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,no,Suicide,NA,NA,6.93,32,8.8
-SRR5961865,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,no,Suicide,yes,AD,6.37,18.5,7.6
-SRR5961866,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,NA,Suicide,yes,AD,6.81,49.5,6.7
-SRR5961867,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,no,Suicide,yes,NA,6.95,50,7.4
-SRR5961868,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,NA,Suicide,yes,AP,6.55,56,7.1
-SRR5961869,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,No,Suicide,yes,AD,6.77,28.5,7.7
-SRR5961870,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,no,Suicide,no,no,6.56,49,7.7
-SRR5961871,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,no,Suicide,no,no,6.85,56,7.2
-SRR5961872,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,no,Suicide,no,no,6.83,59,8.2
-SRR5961873,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,NA,Suicide,yes,AD,6.89,41,6.9
-SRR5961874,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,NA,Natural,no,no,6.11,10,6.5
-SRR5961875,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,No,Suicide,yes,Lithium,6.5,2.5,7.5
-SRR5961876,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,female,no,Accident,no,no,6.4,7.5,5.9
-SRR5961877,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,male,no,Suicide,yes,AD,6.25,6.5,7.7
-SRR5961878,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,female,no,Natural,no,no,6.1,17,6.2
-SRR5961879,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,NA,Suicide,NA,NA,6.7,12,6.4
-SRR5961880,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,NA,Suicide,NA,NA,6.4,4,7.5
-SRR5961881,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,female,no,Suicide,yes,AD,6.5,44,7.5
-SRR5961882,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,NA,Suicide,NA,NA,6.5,17.5,7.3
-SRR5961883,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,female,NA,Natural,NA,NA,7,106,6.8
-SRR5961884,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,No,Suicide,yes,Lithium,6.9,7.5,7.8
-SRR5961885,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,NA,Suicide,NA,NA,6.5,4.5,7.2
-SRR5961886,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,female,no,Suicide,no,no,6.7,38,7.5
-SRR5961887,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,female,NA,Suicide,no,no,7,2,6.4
-SRR5961888,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,female,NA,Natural,NA,NA,6.21,8.5,7.7
-SRR5961889,Dorsolateral prefrontal cortex (dlPFC; BA8/9),MDD,female,NA,Suicide,yes,AD,6.27,3,8
-SRR5961890,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,male,NA,Accident,NA,NA,6.76,23.5,8.1
-SRR5961891,Dorsolateral prefrontal cortex (dlPFC; BA8/9),CTRL,female,no,Suicide,no,no,6.71,16,7.2
-SRR5961892,Cingulate gyrus 25 (Cg25),CTRL,male,no,Natural,no,no,6.49,12,8.3
-SRR5961893,Cingulate gyrus 25 (Cg25),CTRL,male,no,Natural,no,no,6,24,6.9
-SRR5961894,Cingulate gyrus 25 (Cg25),CTRL,male,no,Accident,no,no,6.67,29.5,7.9
-SRR5961895,Cingulate gyrus 25 (Cg25),CTRL,male,NA,Suicide,no,no,6.74,27.75,6.3
-SRR5961914,Cingulate gyrus 25 (Cg25),MDD,female,NA,Suicide,yes,AD,6.81,49.5,7.5
-SRR5961915,Cingulate gyrus 25 (Cg25),MDD,male,no,Suicide,yes,NA,6.95,50,7.6
-SRR5961916,Cingulate gyrus 25 (Cg25),MDD,female,NA,Suicide,yes,AP,6.55,56,5.9
-SRR5961917,Cingulate gyrus 25 (Cg25),MDD,female,No,Suicide,yes,AD,6.77,28.5,6
-SRR5961918,Cingulate gyrus 25 (Cg25),MDD,male,no,Suicide,no,no,6.56,49,6.4
-SRR5961919,Cingulate gyrus 25 (Cg25),MDD,male,no,Suicide,no,no,6.85,56,7.6
-SRR5961920,Cingulate gyrus 25 (Cg25),CTRL,male,no,Suicide,no,no,6.83,59,5.6
-SRR5961921,Cingulate gyrus 25 (Cg25),MDD,female,NA,Suicide,yes,AD,6.89,41,6.4
-SRR5961922,Cingulate gyrus 25 (Cg25),CTRL,male,NA,Natural,no,no,6.11,10,5.1
-SRR5961923,Cingulate gyrus 25 (Cg25),MDD,female,No,Suicide,yes,Lithium,6.5,2.5,6.3
-SRR5961924,Cingulate gyrus 25 (Cg25),CTRL,female,no,Natural,no,no,6.1,17,5.3
-SRR5961925,Cingulate gyrus 25 (Cg25),MDD,female,NA,Suicide,NA,NA,6.7,12,5.8
-SRR5961926,Cingulate gyrus 25 (Cg25),CTRL,male,NA,Suicide,NA,NA,6.4,4,5.7
-SRR5961927,Cingulate gyrus 25 (Cg25),CTRL,female,no,Suicide,yes,AD,6.5,44,7.6
-SRR5961928,Cingulate gyrus 25 (Cg25),MDD,female,NA,Suicide,NA,NA,6.5,17.5,6.8
-SRR5961929,Cingulate gyrus 25 (Cg25),CTRL,female,NA,Natural,NA,NA,7,106,6.4
-SRR5961930,Cingulate gyrus 25 (Cg25),MDD,female,No,Suicide,yes,Lithium,6.9,7.5,7.3
-SRR5961931,Cingulate gyrus 25 (Cg25),MDD,female,NA,Suicide,NA,NA,6.5,4.5,5.5
-SRR5961932,Cingulate gyrus 25 (Cg25),CTRL,female,no,Suicide,no,no,6.7,38,7.3
-SRR5961933,Cingulate gyrus 25 (Cg25),CTRL,female,NA,Suicide,no,no,7,2,6.3
-SRR5961934,Cingulate gyrus 25 (Cg25),CTRL,female,NA,Natural,NA,NA,6.21,8.5,6.1
-SRR5961935,Cingulate gyrus 25 (Cg25),MDD,female,NA,Suicide,yes,AD,6.27,3,8
-SRR5961936,Cingulate gyrus 25 (Cg25),CTRL,male,NA,Accident,NA,NA,6.76,23.5,7.7
-SRR5961937,Cingulate gyrus 25 (Cg25),CTRL,female,no,Suicide,no,no,6.71,16,6.4
-SRR5961938,Anterior Insula (aINS),CTRL,male,no,Natural,no,no,6.49,12,6.8
-SRR5961939,Anterior Insula (aINS),CTRL,male,no,Natural,no,no,6,24,6.8
-SRR5961940,Anterior Insula (aINS),CTRL,male,no,Accident,no,no,6.67,29.5,7.1
-SRR5961941,Anterior Insula (aINS),CTRL,male,NA,Suicide,no,no,6.74,27.75,6.2
-SRR5961942,Anterior Insula (aINS),CTRL,male,no,Natural,no,no,6.42,19.5,6.8
-SRR5961943,Anterior Insula (aINS),CTRL,male,NA,Suicide,no,no,6.26,29.75,5.4
-SRR5961944,Anterior Insula (aINS),MDD,male,no,Suicide,NA,NA,6.57,32,7.6
-SRR5961945,Anterior Insula (aINS),CTRL,male,yes,Suicide,NA,NA,6.68,18,7.9
-SRR5961946,Anterior Insula (aINS),CTRL,male,NA,Suicide,NA,NA,6.84,44.5,6.7
-SRR5961947,Anterior Insula (aINS),MDD,male,no,Suicide,NA,NA,6.91,33.5,6.2
-SRR5961948,Anterior Insula (aINS),MDD,male,no,Suicide,yes,AD,6,19,4.9
-SRR5961949,Anterior Insula (aINS),CTRL,male,no,Accident,no,no,6.75,24,5.7
-SRR5961950,Anterior Insula (aINS),MDD,male,NA,Suicide,NA,NA,6.86,30,7.3
-SRR5961951,Anterior Insula (aINS),MDD,female,NA,Suicide,NA,NA,6.73,20,5.7
-SRR5961952,Anterior Insula (aINS),MDD,male,no,Suicide,yes,anticonvulsivant,6.68,24,6
-SRR5961953,Anterior Insula (aINS),MDD,male,NA,Suicide,no,no,6.93,36,5.5
-SRR5961954,Anterior Insula (aINS),MDD,female,NA,Suicide,yes,AP,6.53,15,4.3
-SRR5961955,Anterior Insula (aINS),MDD,female,No,Suicide,yes,AD,6.79,36,6.7
-SRR5961956,Anterior Insula (aINS),CTRL,female,NA,Suicide,yes,AD,6.73,29.5,6.2
-SRR5961957,Anterior Insula (aINS),MDD,male,no,Suicide,no,no,6.96,27,5.7
-SRR5961958,Anterior Insula (aINS),MDD,male,no,Suicide,NA,NA,6.93,32,7.5
-SRR5961959,Anterior Insula (aINS),MDD,male,no,Suicide,yes,AD,6.37,18.5,7.8
-SRR5961960,Anterior Insula (aINS),MDD,female,NA,Suicide,yes,AD,6.81,49.5,6.1
-SRR5961961,Anterior Insula (aINS),MDD,male,no,Suicide,yes,NA,6.95,50,4.6
-SRR5961962,Anterior Insula (aINS),MDD,female,NA,Suicide,yes,AP,6.55,56,5.9
-SRR5961963,Anterior Insula (aINS),MDD,female,No,Suicide,yes,AD,6.77,28.5,6.1
-SRR5961964,Anterior Insula (aINS),MDD,male,no,Suicide,no,no,6.56,49,5.6
-SRR5961965,Anterior Insula (aINS),MDD,male,no,Suicide,no,no,6.85,56,5.8
-SRR5961966,Anterior Insula (aINS),CTRL,male,no,Suicide,no,no,6.83,59,5.1
-SRR5961967,Anterior Insula (aINS),MDD,female,NA,Suicide,yes,AD,6.89,41,5.8
-SRR5961968,Anterior Insula (aINS),CTRL,male,NA,Natural,no,no,6.11,10,5.5
-SRR5961969,Anterior Insula (aINS),MDD,female,No,Suicide,yes,Lithium,6.5,2.5,7.2
-SRR5961970,Anterior Insula (aINS),CTRL,female,no,Accident,no,no,6.4,7.5,5.2
-SRR5961971,Anterior Insula (aINS),MDD,male,no,Suicide,yes,AD,6.25,6.5,5.8
-SRR5961972,Anterior Insula (aINS),CTRL,female,no,Natural,no,no,6.1,17,5.6
-SRR5961973,Anterior Insula (aINS),MDD,female,NA,Suicide,NA,NA,6.7,12,6.7
-SRR5961974,Anterior Insula (aINS),CTRL,male,NA,Suicide,NA,NA,6.4,4,6.1
-SRR5961975,Anterior Insula (aINS),CTRL,female,no,Suicide,yes,AD,6.5,44,6.6
-SRR5961976,Anterior Insula (aINS),MDD,female,NA,Suicide,NA,NA,6.5,17.5,7.1
-SRR5961977,Anterior Insula (aINS),CTRL,female,NA,Natural,NA,NA,7,106,6.3
-SRR5961978,Anterior Insula (aINS),MDD,female,No,Suicide,yes,Lithium,6.9,7.5,8
-SRR5961979,Anterior Insula (aINS),MDD,female,NA,Suicide,NA,NA,6.5,4.5,8.2
-SRR5961980,Anterior Insula (aINS),CTRL,female,no,Suicide,no,no,6.7,38,8.6
-SRR5961981,Anterior Insula (aINS),CTRL,female,NA,Suicide,no,no,7,2,7.7
-SRR5961982,Anterior Insula (aINS),CTRL,female,NA,Natural,NA,NA,6.21,8.5,8.4
-SRR5961983,Anterior Insula (aINS),MDD,female,NA,Suicide,yes,AD,6.27,3,8.3
-SRR5961984,Anterior Insula (aINS),CTRL,male,NA,Accident,NA,NA,6.76,23.5,8.1
-SRR5961985,Anterior Insula (aINS),CTRL,female,no,Suicide,no,no,6.71,16,8.2
-SRR5961986,Nucleus Accumbens (Nac),CTRL,male,no,Natural,no,no,6.49,12,7.6
-SRR5961987,Nucleus Accumbens (Nac),CTRL,male,no,Natural,no,no,6,24,8
-SRR5961988,Nucleus Accumbens (Nac),CTRL,male,no,Accident,no,no,6.67,29.5,7.1
-SRR5961989,Nucleus Accumbens (Nac),CTRL,male,NA,Suicide,no,no,6.74,27.75,6.5
-SRR5961990,Nucleus Accumbens (Nac),CTRL,male,no,Natural,no,no,6.42,19.5,7.5
-SRR5961991,Nucleus Accumbens (Nac),CTRL,male,NA,Suicide,no,no,6.26,29.75,5.6
-SRR5961992,Nucleus Accumbens (Nac),MDD,male,no,Suicide,NA,NA,6.57,32,7.2
-SRR5961993,Nucleus Accumbens (Nac),CTRL,male,yes,Suicide,NA,NA,6.68,18,7.8
-SRR5961994,Nucleus Accumbens (Nac),CTRL,male,NA,Suicide,NA,NA,6.84,44.5,5.9
-SRR5961995,Nucleus Accumbens (Nac),MDD,male,no,Suicide,NA,NA,6.91,33.5,7.7
-SRR5961996,Nucleus Accumbens (Nac),MDD,male,no,Suicide,yes,AD,6,19,4.9
-SRR5961997,Nucleus Accumbens (Nac),CTRL,male,no,Accident,no,no,6.75,24,4.4
-SRR5961998,Nucleus Accumbens (Nac),MDD,male,NA,Suicide,NA,NA,6.86,30,7.7
-SRR5961999,Nucleus Accumbens (Nac),MDD,female,NA,Suicide,NA,NA,6.73,20,8.1
-SRR5962000,Nucleus Accumbens (Nac),MDD,male,no,Suicide,yes,anticonvulsivant,6.68,24,8.4
-SRR5962001,Nucleus Accumbens (Nac),MDD,male,NA,Suicide,no,no,6.93,36,7.5
-SRR5962002,Nucleus Accumbens (Nac),MDD,female,NA,Suicide,yes,AP,6.53,15,8.4
-SRR5962003,Nucleus Accumbens (Nac),MDD,female,No,Suicide,yes,AD,6.79,36,8
-SRR5962004,Nucleus Accumbens (Nac),CTRL,female,NA,Suicide,yes,AD,6.73,29.5,7.2
-SRR5962005,Nucleus Accumbens (Nac),MDD,male,no,Suicide,no,no,6.96,27,7.7
-SRR5962006,Nucleus Accumbens (Nac),MDD,male,no,Suicide,NA,NA,6.93,32,8.2
-SRR5962007,Nucleus Accumbens (Nac),MDD,male,no,Suicide,yes,AD,6.37,18.5,7.5
-SRR5962008,Nucleus Accumbens (Nac),MDD,female,NA,Suicide,yes,AD,6.81,49.5,7.7
-SRR5962009,Nucleus Accumbens (Nac),MDD,male,no,Suicide,yes,NA,6.95,50,7.8
-SRR5962010,Nucleus Accumbens (Nac),MDD,female,NA,Suicide,yes,AP,6.55,56,7.6
-SRR5962011,Nucleus Accumbens (Nac),MDD,female,No,Suicide,yes,AD,6.77,28.5,8.7
-SRR5962012,Nucleus Accumbens (Nac),MDD,male,no,Suicide,no,no,6.56,49,8.5
-SRR5962013,Nucleus Accumbens (Nac),MDD,male,no,Suicide,no,no,6.85,56,8.3
-SRR5962014,Nucleus Accumbens (Nac),CTRL,male,no,Suicide,no,no,6.83,59,8.8
-SRR5962015,Nucleus Accumbens (Nac),MDD,female,NA,Suicide,yes,AD,6.89,41,8.3
-SRR5962016,Nucleus Accumbens (Nac),CTRL,male,NA,Natural,no,no,6.11,10,6.8
-SRR5962017,Nucleus Accumbens (Nac),MDD,female,No,Suicide,yes,Lithium,6.5,2.5,7.7
-SRR5962018,Nucleus Accumbens (Nac),CTRL,female,no,Accident,no,no,6.4,7.5,7.2
-SRR5962019,Nucleus Accumbens (Nac),MDD,male,no,Suicide,yes,AD,6.25,6.5,8.1
-SRR5962020,Nucleus Accumbens (Nac),CTRL,female,no,Natural,no,no,6.1,17,7.4
-SRR5962021,Nucleus Accumbens (Nac),MDD,female,NA,Suicide,NA,NA,6.7,12,7.5
-SRR5962022,Nucleus Accumbens (Nac),CTRL,male,NA,Suicide,NA,NA,6.4,4,7.5
-SRR5962023,Nucleus Accumbens (Nac),CTRL,female,no,Suicide,yes,AD,6.5,44,7.8
-SRR5962024,Nucleus Accumbens (Nac),MDD,female,NA,Suicide,NA,NA,6.5,17.5,7.3
-SRR5962025,Nucleus Accumbens (Nac),CTRL,female,NA,Natural,NA,NA,7,106,7.6
-SRR5962026,Nucleus Accumbens (Nac),MDD,female,No,Suicide,yes,Lithium,6.9,7.5,7.8
-SRR5962027,Nucleus Accumbens (Nac),MDD,female,NA,Suicide,NA,NA,6.5,4.5,7.8
-SRR5962028,Nucleus Accumbens (Nac),CTRL,female,no,Suicide,no,no,6.7,38,8.3
-SRR5962029,Nucleus Accumbens (Nac),CTRL,female,NA,Suicide,no,no,7,2,8.2
-SRR5962030,Nucleus Accumbens (Nac),CTRL,female,NA,Natural,NA,NA,6.21,8.5,8.2
-SRR5962031,Nucleus Accumbens (Nac),MDD,female,NA,Suicide,yes,AD,6.27,3,9.1
-SRR5962032,Nucleus Accumbens (Nac),CTRL,male,NA,Accident,NA,NA,6.76,23.5,8.6
-SRR5962033,Nucleus Accumbens (Nac),CTRL,female,no,Suicide,no,no,6.71,16,7.8
-SRR5962034,Subiculum (Sub),CTRL,male,no,Natural,no,no,6.49,12,7.2
-SRR5962035,Subiculum (Sub),CTRL,male,no,Natural,no,no,6,24,6.5
-SRR5962036,Subiculum (Sub),CTRL,male,no,Accident,no,no,6.67,29.5,7.3
-SRR5962037,Subiculum (Sub),CTRL,male,NA,Suicide,no,no,6.74,27.75,6.4
-SRR5962038,Subiculum (Sub),CTRL,male,NA,Suicide,no,no,6.26,29.75,5.8
-SRR5962039,Subiculum (Sub),MDD,male,no,Suicide,NA,NA,6.57,32,7.5
-SRR5962040,Subiculum (Sub),CTRL,male,yes,Suicide,NA,NA,6.68,18,6.7
-SRR5962041,Subiculum (Sub),CTRL,male,NA,Suicide,NA,NA,6.84,44.5,7.4
-SRR5962042,Subiculum (Sub),MDD,male,no,Suicide,NA,NA,6.91,33.5,7.5
-SRR5962043,Subiculum (Sub),MDD,male,no,Suicide,yes,AD,6,19,6
-SRR5962044,Subiculum (Sub),CTRL,male,no,Accident,no,no,6.75,24,6.7
-SRR5962045,Subiculum (Sub),MDD,male,NA,Suicide,NA,NA,6.86,30,7.3
-SRR5962046,Subiculum (Sub),MDD,male,no,Suicide,yes,anticonvulsivant,6.68,24,7.8
-SRR5962047,Subiculum (Sub),MDD,female,NA,Suicide,yes,AP,6.53,15,7.7
-SRR5962048,Subiculum (Sub),MDD,female,No,Suicide,yes,AD,6.79,36,7.1
-SRR5962049,Subiculum (Sub),CTRL,female,NA,Suicide,yes,AD,6.73,29.5,7.3
-SRR5962050,Subiculum (Sub),MDD,male,no,Suicide,no,no,6.96,27,8.3
-SRR5962051,Subiculum (Sub),MDD,male,no,Suicide,NA,NA,6.93,32,8.2
-SRR5962052,Subiculum (Sub),MDD,male,no,Suicide,yes,AD,6.37,18.5,8.7
-SRR5962053,Subiculum (Sub),MDD,female,NA,Suicide,yes,AD,6.81,49.5,5.9
-SRR5962054,Subiculum (Sub),MDD,male,no,Suicide,yes,NA,6.95,50,9.4
-SRR5962055,Subiculum (Sub),MDD,female,NA,Suicide,yes,AP,6.55,56,6.6
-SRR5962056,Subiculum (Sub),MDD,female,No,Suicide,yes,AD,6.77,28.5,7.4
-SRR5962057,Subiculum (Sub),MDD,male,no,Suicide,no,no,6.56,49,6.7
-SRR5962058,Subiculum (Sub),MDD,male,no,Suicide,no,no,6.85,56,7
-SRR5962059,Subiculum (Sub),CTRL,male,no,Suicide,no,no,6.83,59,7.6
-SRR5962060,Subiculum (Sub),MDD,female,NA,Suicide,yes,AD,6.89,41,7.7
-SRR5962061,Subiculum (Sub),CTRL,male,NA,Natural,no,no,6.11,10,6.3
-SRR5962062,Subiculum (Sub),MDD,female,No,Suicide,yes,Lithium,6.5,2.5,6.7
-SRR5962063,Subiculum (Sub),MDD,male,no,Suicide,yes,AD,6.25,6.5,7
-SRR5962064,Subiculum (Sub),CTRL,female,no,Natural,no,no,6.1,17,5.1
-SRR5962065,Subiculum (Sub),MDD,female,NA,Suicide,NA,NA,6.7,12,7.4
-SRR5962066,Subiculum (Sub),CTRL,male,NA,Suicide,NA,NA,6.4,4,6.4
-SRR5962067,Subiculum (Sub),CTRL,female,no,Suicide,yes,AD,6.5,44,6.4
-SRR5962068,Subiculum (Sub),MDD,female,NA,Suicide,NA,NA,6.5,17.5,7.7
-SRR5962069,Subiculum (Sub),MDD,female,No,Suicide,yes,Lithium,6.9,7.5,6.6
-SRR5962070,Subiculum (Sub),MDD,female,NA,Suicide,NA,NA,6.5,4.5,7.7
-SRR5962071,Subiculum (Sub),CTRL,female,no,Suicide,no,no,6.7,38,7.3
-SRR5962072,Subiculum (Sub),CTRL,female,NA,Suicide,no,no,7,2,7.3
-SRR5962073,Subiculum (Sub),CTRL,female,NA,Natural,NA,NA,6.21,8.5,7.6
-SRR5962074,Subiculum (Sub),MDD,female,NA,Suicide,yes,AD,6.27,3,7.6
-SRR5962075,Subiculum (Sub),CTRL,male,NA,Accident,NA,NA,6.76,23.5,7.2
-SRR5962076,Subiculum (Sub),CTRL,female,no,Suicide,no,no,6.71,16,8
-SRR6443679,Nucleus Accumbens (Nac),MDD,male,no,Suicide,NA,NA,6.57,32,7.2
-SRR6443680,Nucleus Accumbens (Nac),MDD,male,no,Suicide,NA,NA,6.91,33.5,7.7
+Run,tissue,gender,phenotype,medication,Cause_of_death,drugs,medication_type,ph,pmi,rin,,,COUNTS,
+SRR5961796,Orbitofrontal (OFC; BA11),male,CTRL,no,Natural,no,no,6.49,12,7.9,,,Region,N
+SRR5961797,Orbitofrontal (OFC; BA11),male,CTRL,no,Natural,no,no,6,24,6.8,,,OFC,48
+SRR5961798,Orbitofrontal (OFC; BA11),male,CTRL,no,Accident,no,no,6.67,29.5,7.1,,,DLPFC,48
+SRR5961799,Orbitofrontal (OFC; BA11),male,CTRL,no,Suicide,NA,no,6.74,27.75,6.7,,,CG25,28
+SRR5961800,Orbitofrontal (OFC; BA11),male,CTRL,no,Natural,no,no,6.42,19.5,7.7,,,AI,48
+SRR5961801,Orbitofrontal (OFC; BA11),male,CTRL,no,Suicide,NA,no,6.26,29.75,5.8,,,NA,50
+SRR5961802,Orbitofrontal (OFC; BA11),male,MDD,NA,Suicide,no,NA,6.57,32,7,,,SUB,43
+SRR5961803,Orbitofrontal (OFC; BA11),male,CTRL,NA,Suicide,yes,NA,6.68,18,7.8,,,,
+SRR5961804,Orbitofrontal (OFC; BA11),male,CTRL,NA,Suicide,NA,NA,6.84,44.5,6.8,,,Mouse PFC,38
+SRR5961805,Orbitofrontal (OFC; BA11),male,MDD,NA,Suicide,no,NA,6.91,33.5,8,,,Mouse NA,40
+SRR5961806,Orbitofrontal (OFC; BA11),male,MDD,yes,Suicide,no,AD,6,19,4.8,,,,
+SRR5961807,Orbitofrontal (OFC; BA11),male,CTRL,no,Accident,no,no,6.75,24,7.5,,,,
+SRR5961808,Orbitofrontal (OFC; BA11),male,MDD,NA,Suicide,NA,NA,6.86,30,7.5,,,,
+SRR5961809,Orbitofrontal (OFC; BA11),female,MDD,NA,Suicide,NA,NA,6.73,20,7.4,,,,
+SRR5961810,Orbitofrontal (OFC; BA11),male,MDD,yes,Suicide,no,anticonvulsivant,6.68,24,7.4,,,,
+SRR5961811,Orbitofrontal (OFC; BA11),male,MDD,no,Suicide,NA,no,6.93,36,6.1,,,,
+SRR5961812,Orbitofrontal (OFC; BA11),female,MDD,yes,Suicide,NA,AP,6.53,15,6.9,,,,
+SRR5961813,Orbitofrontal (OFC; BA11),female,MDD,yes,Suicide,No,AD,6.79,36,6.9,,,,
+SRR5961814,Orbitofrontal (OFC; BA11),female,CTRL,yes,Suicide,NA,AD,6.73,29.5,7.3,,,,
+SRR5961815,Orbitofrontal (OFC; BA11),male,MDD,no,Suicide,no,no,6.96,27,5.7,,,,
+SRR5961816,Orbitofrontal (OFC; BA11),male,MDD,NA,Suicide,no,NA,6.93,32,8.8,,,,
+SRR5961817,Orbitofrontal (OFC; BA11),male,MDD,yes,Suicide,no,AD,6.37,18.5,6.8,,,,
+SRR5961818,Orbitofrontal (OFC; BA11),female,MDD,yes,Suicide,NA,AD,6.81,49.5,7.8,,,,
+SRR5961819,Orbitofrontal (OFC; BA11),male,MDD,yes,Suicide,no,NA,6.95,50,6.5,,,,
+SRR5961820,Orbitofrontal (OFC; BA11),female,MDD,yes,Suicide,NA,AP,6.55,56,6.2,,,,
+SRR5961821,Orbitofrontal (OFC; BA11),female,MDD,yes,Suicide,No,AD,6.77,28.5,8.3,,,,
+SRR5961822,Orbitofrontal (OFC; BA11),male,MDD,no,Suicide,no,no,6.56,49,7.9,,,,
+SRR5961823,Orbitofrontal (OFC; BA11),male,MDD,no,Suicide,no,no,6.85,56,6.8,,,,
+SRR5961824,Orbitofrontal (OFC; BA11),male,CTRL,no,Suicide,no,no,6.83,59,6.1,,,,
+SRR5961825,Orbitofrontal (OFC; BA11),female,MDD,yes,Suicide,NA,AD,6.89,41,8.2,,,,
+SRR5961826,Orbitofrontal (OFC; BA11),male,CTRL,no,Natural,NA,no,6.11,10,5.7,,,,
+SRR5961827,Orbitofrontal (OFC; BA11),female,MDD,yes,Suicide,No,Lithium,6.5,2.5,8.5,,,,
+SRR5961828,Orbitofrontal (OFC; BA11),female,CTRL,no,Accident,no,no,6.4,7.5,6.8,,,,
+SRR5961829,Orbitofrontal (OFC; BA11),male,MDD,yes,Suicide,no,AD,6.25,6.5,9.1,,,,
+SRR5961830,Orbitofrontal (OFC; BA11),female,CTRL,no,Natural,no,no,6.1,17,5.7,,,,
+SRR5961831,Orbitofrontal (OFC; BA11),female,MDD,NA,Suicide,NA,NA,6.7,12,6.7,,,,
+SRR5961832,Orbitofrontal (OFC; BA11),male,CTRL,NA,Suicide,NA,NA,6.4,4,8,,,,
+SRR5961833,Orbitofrontal (OFC; BA11),female,CTRL,yes,Suicide,no,AD,6.5,44,7.4,,,,
+SRR5961834,Orbitofrontal (OFC; BA11),female,MDD,NA,Suicide,NA,NA,6.5,17.5,8,,,,
+SRR5961835,Orbitofrontal (OFC; BA11),female,CTRL,NA,Natural,NA,NA,7,106,8,,,,
+SRR5961836,Orbitofrontal (OFC; BA11),female,MDD,yes,Suicide,No,Lithium,6.9,7.5,7.6,,,,
+SRR5961837,Orbitofrontal (OFC; BA11),female,MDD,NA,Suicide,NA,NA,6.5,4.5,8.3,,,,
+SRR5961838,Orbitofrontal (OFC; BA11),female,CTRL,no,Suicide,no,no,6.7,38,7.9,,,,
+SRR5961839,Orbitofrontal (OFC; BA11),female,CTRL,no,Suicide,NA,no,7,2,6.1,,,,
+SRR5961840,Orbitofrontal (OFC; BA11),female,CTRL,NA,Natural,NA,NA,6.21,8.5,8.3,,,,
+SRR5961841,Orbitofrontal (OFC; BA11),female,MDD,yes,Suicide,NA,AD,6.27,3,7.3,,,,
+SRR5961842,Orbitofrontal (OFC; BA11),male,CTRL,NA,Accident,NA,NA,6.76,23.5,7.4,,,,
+SRR5961843,Orbitofrontal (OFC; BA11),female,CTRL,no,Suicide,no,no,6.71,16,8.3,,,,
+SRR5961844,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,no,Natural,no,no,6.49,12,7.8,,,,
+SRR5961845,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,no,Natural,no,no,6,24,7.6,,,,
+SRR5961846,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,no,Accident,no,no,6.67,29.5,6.9,,,,
+SRR5961847,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,no,Suicide,NA,no,6.74,27.75,7.7,,,,
+SRR5961848,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,no,Natural,no,no,6.42,19.5,7.7,,,,
+SRR5961849,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,no,Suicide,NA,no,6.26,29.75,6.5,,,,
+SRR5961850,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,NA,Suicide,no,NA,6.57,32,7.8,,,,
+SRR5961851,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,NA,Suicide,yes,NA,6.68,18,7.2,,,,
+SRR5961852,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,NA,Suicide,NA,NA,6.84,44.5,7.2,,,,
+SRR5961853,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,NA,Suicide,no,NA,6.91,33.5,7.7,,,,
+SRR5961854,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,yes,Suicide,no,AD,6,19,6.6,,,,
+SRR5961855,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,no,Accident,no,no,6.75,24,7.2,,,,
+SRR5961856,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,NA,Suicide,NA,NA,6.86,30,6.9,,,,
+SRR5961857,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,NA,Suicide,NA,NA,6.73,20,7.2,,,,
+SRR5961858,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,yes,Suicide,no,anticonvulsivant,6.68,24,6.8,,,,
+SRR5961859,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,no,Suicide,NA,no,6.93,36,5.6,,,,
+SRR5961860,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,yes,Suicide,NA,AP,6.53,15,7.5,,,,
+SRR5961861,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,yes,Suicide,No,AD,6.79,36,7.5,,,,
+SRR5961862,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,CTRL,yes,Suicide,NA,AD,6.73,29.5,6.9,,,,
+SRR5961863,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,no,Suicide,no,no,6.96,27,7.6,,,,
+SRR5961864,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,NA,Suicide,no,NA,6.93,32,8.8,,,,
+SRR5961865,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,yes,Suicide,no,AD,6.37,18.5,7.6,,,,
+SRR5961866,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,yes,Suicide,NA,AD,6.81,49.5,6.7,,,,
+SRR5961867,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,yes,Suicide,no,NA,6.95,50,7.4,,,,
+SRR5961868,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,yes,Suicide,NA,AP,6.55,56,7.1,,,,
+SRR5961869,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,yes,Suicide,No,AD,6.77,28.5,7.7,,,,
+SRR5961870,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,no,Suicide,no,no,6.56,49,7.7,,,,
+SRR5961871,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,no,Suicide,no,no,6.85,56,7.2,,,,
+SRR5961872,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,no,Suicide,no,no,6.83,59,8.2,,,,
+SRR5961873,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,yes,Suicide,NA,AD,6.89,41,6.9,,,,
+SRR5961874,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,no,Natural,NA,no,6.11,10,6.5,,,,
+SRR5961875,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,yes,Suicide,No,Lithium,6.5,2.5,7.5,,,,
+SRR5961876,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,CTRL,no,Accident,no,no,6.4,7.5,5.9,,,,
+SRR5961877,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,MDD,yes,Suicide,no,AD,6.25,6.5,7.7,,,,
+SRR5961878,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,CTRL,no,Natural,no,no,6.1,17,6.2,,,,
+SRR5961879,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,NA,Suicide,NA,NA,6.7,12,6.4,,,,
+SRR5961880,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,NA,Suicide,NA,NA,6.4,4,7.5,,,,
+SRR5961881,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,CTRL,yes,Suicide,no,AD,6.5,44,7.5,,,,
+SRR5961882,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,NA,Suicide,NA,NA,6.5,17.5,7.3,,,,
+SRR5961883,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,CTRL,NA,Natural,NA,NA,7,106,6.8,,,,
+SRR5961884,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,yes,Suicide,No,Lithium,6.9,7.5,7.8,,,,
+SRR5961885,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,NA,Suicide,NA,NA,6.5,4.5,7.2,,,,
+SRR5961886,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,CTRL,no,Suicide,no,no,6.7,38,7.5,,,,
+SRR5961887,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,CTRL,no,Suicide,NA,no,7,2,6.4,,,,
+SRR5961888,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,CTRL,NA,Natural,NA,NA,6.21,8.5,7.7,,,,
+SRR5961889,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,MDD,yes,Suicide,NA,AD,6.27,3,8,,,,
+SRR5961890,Dorsolateral prefrontal cortex (dlPFC; BA8/9),male,CTRL,NA,Accident,NA,NA,6.76,23.5,8.1,,,,
+SRR5961891,Dorsolateral prefrontal cortex (dlPFC; BA8/9),female,CTRL,no,Suicide,no,no,6.71,16,7.2,,,,
+SRR5961892,Cingulate gyrus 25 (Cg25),male,CTRL,no,Natural,no,no,6.49,12,8.3,,,,
+SRR5961893,Cingulate gyrus 25 (Cg25),male,CTRL,no,Natural,no,no,6,24,6.9,,,,
+SRR5961894,Cingulate gyrus 25 (Cg25),male,CTRL,no,Accident,no,no,6.67,29.5,7.9,,,,
+SRR5961895,Cingulate gyrus 25 (Cg25),male,CTRL,no,Suicide,NA,no,6.74,27.75,6.3,,,,
+SRR5961914,Cingulate gyrus 25 (Cg25),female,MDD,yes,Suicide,NA,AD,6.81,49.5,7.5,,,,
+SRR5961915,Cingulate gyrus 25 (Cg25),male,MDD,yes,Suicide,no,NA,6.95,50,7.6,,,,
+SRR5961916,Cingulate gyrus 25 (Cg25),female,MDD,yes,Suicide,NA,AP,6.55,56,5.9,,,,
+SRR5961917,Cingulate gyrus 25 (Cg25),female,MDD,yes,Suicide,No,AD,6.77,28.5,6,,,,
+SRR5961918,Cingulate gyrus 25 (Cg25),male,MDD,no,Suicide,no,no,6.56,49,6.4,,,,
+SRR5961919,Cingulate gyrus 25 (Cg25),male,MDD,no,Suicide,no,no,6.85,56,7.6,,,,
+SRR5961920,Cingulate gyrus 25 (Cg25),male,CTRL,no,Suicide,no,no,6.83,59,5.6,,,,
+SRR5961921,Cingulate gyrus 25 (Cg25),female,MDD,yes,Suicide,NA,AD,6.89,41,6.4,,,,
+SRR5961922,Cingulate gyrus 25 (Cg25),male,CTRL,no,Natural,NA,no,6.11,10,5.1,,,,
+SRR5961923,Cingulate gyrus 25 (Cg25),female,MDD,yes,Suicide,No,Lithium,6.5,2.5,6.3,,,,
+SRR5961924,Cingulate gyrus 25 (Cg25),female,CTRL,no,Natural,no,no,6.1,17,5.3,,,,
+SRR5961925,Cingulate gyrus 25 (Cg25),female,MDD,NA,Suicide,NA,NA,6.7,12,5.8,,,,
+SRR5961926,Cingulate gyrus 25 (Cg25),male,CTRL,NA,Suicide,NA,NA,6.4,4,5.7,,,,
+SRR5961927,Cingulate gyrus 25 (Cg25),female,CTRL,yes,Suicide,no,AD,6.5,44,7.6,,,,
+SRR5961928,Cingulate gyrus 25 (Cg25),female,MDD,NA,Suicide,NA,NA,6.5,17.5,6.8,,,,
+SRR5961929,Cingulate gyrus 25 (Cg25),female,CTRL,NA,Natural,NA,NA,7,106,6.4,,,,
+SRR5961930,Cingulate gyrus 25 (Cg25),female,MDD,yes,Suicide,No,Lithium,6.9,7.5,7.3,,,,
+SRR5961931,Cingulate gyrus 25 (Cg25),female,MDD,NA,Suicide,NA,NA,6.5,4.5,5.5,,,,
+SRR5961932,Cingulate gyrus 25 (Cg25),female,CTRL,no,Suicide,no,no,6.7,38,7.3,,,,
+SRR5961933,Cingulate gyrus 25 (Cg25),female,CTRL,no,Suicide,NA,no,7,2,6.3,,,,
+SRR5961934,Cingulate gyrus 25 (Cg25),female,CTRL,NA,Natural,NA,NA,6.21,8.5,6.1,,,,
+SRR5961935,Cingulate gyrus 25 (Cg25),female,MDD,yes,Suicide,NA,AD,6.27,3,8,,,,
+SRR5961936,Cingulate gyrus 25 (Cg25),male,CTRL,NA,Accident,NA,NA,6.76,23.5,7.7,,,,
+SRR5961937,Cingulate gyrus 25 (Cg25),female,CTRL,no,Suicide,no,no,6.71,16,6.4,,,,
+SRR5961938,Anterior Insula (aINS),male,CTRL,no,Natural,no,no,6.49,12,6.8,,,,
+SRR5961939,Anterior Insula (aINS),male,CTRL,no,Natural,no,no,6,24,6.8,,,,
+SRR5961940,Anterior Insula (aINS),male,CTRL,no,Accident,no,no,6.67,29.5,7.1,,,,
+SRR5961941,Anterior Insula (aINS),male,CTRL,no,Suicide,NA,no,6.74,27.75,6.2,,,,
+SRR5961942,Anterior Insula (aINS),male,CTRL,no,Natural,no,no,6.42,19.5,6.8,,,,
+SRR5961943,Anterior Insula (aINS),male,CTRL,no,Suicide,NA,no,6.26,29.75,5.4,,,,
+SRR5961944,Anterior Insula (aINS),male,MDD,NA,Suicide,no,NA,6.57,32,7.6,,,,
+SRR5961945,Anterior Insula (aINS),male,CTRL,NA,Suicide,yes,NA,6.68,18,7.9,,,,
+SRR5961946,Anterior Insula (aINS),male,CTRL,NA,Suicide,NA,NA,6.84,44.5,6.7,,,,
+SRR5961947,Anterior Insula (aINS),male,MDD,NA,Suicide,no,NA,6.91,33.5,6.2,,,,
+SRR5961948,Anterior Insula (aINS),male,MDD,yes,Suicide,no,AD,6,19,4.9,,,,
+SRR5961949,Anterior Insula (aINS),male,CTRL,no,Accident,no,no,6.75,24,5.7,,,,
+SRR5961950,Anterior Insula (aINS),male,MDD,NA,Suicide,NA,NA,6.86,30,7.3,,,,
+SRR5961951,Anterior Insula (aINS),female,MDD,NA,Suicide,NA,NA,6.73,20,5.7,,,,
+SRR5961952,Anterior Insula (aINS),male,MDD,yes,Suicide,no,anticonvulsivant,6.68,24,6,,,,
+SRR5961953,Anterior Insula (aINS),male,MDD,no,Suicide,NA,no,6.93,36,5.5,,,,
+SRR5961954,Anterior Insula (aINS),female,MDD,yes,Suicide,NA,AP,6.53,15,4.3,,,,
+SRR5961955,Anterior Insula (aINS),female,MDD,yes,Suicide,No,AD,6.79,36,6.7,,,,
+SRR5961956,Anterior Insula (aINS),female,CTRL,yes,Suicide,NA,AD,6.73,29.5,6.2,,,,
+SRR5961957,Anterior Insula (aINS),male,MDD,no,Suicide,no,no,6.96,27,5.7,,,,
+SRR5961958,Anterior Insula (aINS),male,MDD,NA,Suicide,no,NA,6.93,32,7.5,,,,
+SRR5961959,Anterior Insula (aINS),male,MDD,yes,Suicide,no,AD,6.37,18.5,7.8,,,,
+SRR5961960,Anterior Insula (aINS),female,MDD,yes,Suicide,NA,AD,6.81,49.5,6.1,,,,
+SRR5961961,Anterior Insula (aINS),male,MDD,yes,Suicide,no,NA,6.95,50,4.6,,,,
+SRR5961962,Anterior Insula (aINS),female,MDD,yes,Suicide,NA,AP,6.55,56,5.9,,,,
+SRR5961963,Anterior Insula (aINS),female,MDD,yes,Suicide,No,AD,6.77,28.5,6.1,,,,
+SRR5961964,Anterior Insula (aINS),male,MDD,no,Suicide,no,no,6.56,49,5.6,,,,
+SRR5961965,Anterior Insula (aINS),male,MDD,no,Suicide,no,no,6.85,56,5.8,,,,
+SRR5961966,Anterior Insula (aINS),male,CTRL,no,Suicide,no,no,6.83,59,5.1,,,,
+SRR5961967,Anterior Insula (aINS),female,MDD,yes,Suicide,NA,AD,6.89,41,5.8,,,,
+SRR5961968,Anterior Insula (aINS),male,CTRL,no,Natural,NA,no,6.11,10,5.5,,,,
+SRR5961969,Anterior Insula (aINS),female,MDD,yes,Suicide,No,Lithium,6.5,2.5,7.2,,,,
+SRR5961970,Anterior Insula (aINS),female,CTRL,no,Accident,no,no,6.4,7.5,5.2,,,,
+SRR5961971,Anterior Insula (aINS),male,MDD,yes,Suicide,no,AD,6.25,6.5,5.8,,,,
+SRR5961972,Anterior Insula (aINS),female,CTRL,no,Natural,no,no,6.1,17,5.6,,,,
+SRR5961973,Anterior Insula (aINS),female,MDD,NA,Suicide,NA,NA,6.7,12,6.7,,,,
+SRR5961974,Anterior Insula (aINS),male,CTRL,NA,Suicide,NA,NA,6.4,4,6.1,,,,
+SRR5961975,Anterior Insula (aINS),female,CTRL,yes,Suicide,no,AD,6.5,44,6.6,,,,
+SRR5961976,Anterior Insula (aINS),female,MDD,NA,Suicide,NA,NA,6.5,17.5,7.1,,,,
+SRR5961977,Anterior Insula (aINS),female,CTRL,NA,Natural,NA,NA,7,106,6.3,,,,
+SRR5961978,Anterior Insula (aINS),female,MDD,yes,Suicide,No,Lithium,6.9,7.5,8,,,,
+SRR5961979,Anterior Insula (aINS),female,MDD,NA,Suicide,NA,NA,6.5,4.5,8.2,,,,
+SRR5961980,Anterior Insula (aINS),female,CTRL,no,Suicide,no,no,6.7,38,8.6,,,,
+SRR5961981,Anterior Insula (aINS),female,CTRL,no,Suicide,NA,no,7,2,7.7,,,,
+SRR5961982,Anterior Insula (aINS),female,CTRL,NA,Natural,NA,NA,6.21,8.5,8.4,,,,
+SRR5961983,Anterior Insula (aINS),female,MDD,yes,Suicide,NA,AD,6.27,3,8.3,,,,
+SRR5961984,Anterior Insula (aINS),male,CTRL,NA,Accident,NA,NA,6.76,23.5,8.1,,,,
+SRR5961985,Anterior Insula (aINS),female,CTRL,no,Suicide,no,no,6.71,16,8.2,,,,
+SRR5961986,Nucleus Accumbens (Nac),male,CTRL,no,Natural,no,no,6.49,12,7.6,,,,
+SRR5961987,Nucleus Accumbens (Nac),male,CTRL,no,Natural,no,no,6,24,8,,,,
+SRR5961988,Nucleus Accumbens (Nac),male,CTRL,no,Accident,no,no,6.67,29.5,7.1,,,,
+SRR5961989,Nucleus Accumbens (Nac),male,CTRL,no,Suicide,NA,no,6.74,27.75,6.5,,,,
+SRR5961990,Nucleus Accumbens (Nac),male,CTRL,no,Natural,no,no,6.42,19.5,7.5,,,,
+SRR5961991,Nucleus Accumbens (Nac),male,CTRL,no,Suicide,NA,no,6.26,29.75,5.6,,,,
+SRR5961992,Nucleus Accumbens (Nac),male,MDD,NA,Suicide,no,NA,6.57,32,7.2,,,,
+SRR5961993,Nucleus Accumbens (Nac),male,CTRL,NA,Suicide,yes,NA,6.68,18,7.8,,,,
+SRR5961994,Nucleus Accumbens (Nac),male,CTRL,NA,Suicide,NA,NA,6.84,44.5,5.9,,,,
+SRR5961995,Nucleus Accumbens (Nac),male,MDD,NA,Suicide,no,NA,6.91,33.5,7.7,,,,
+SRR5961996,Nucleus Accumbens (Nac),male,MDD,yes,Suicide,no,AD,6,19,4.9,,,,
+SRR5961997,Nucleus Accumbens (Nac),male,CTRL,no,Accident,no,no,6.75,24,4.4,,,,
+SRR5961998,Nucleus Accumbens (Nac),male,MDD,NA,Suicide,NA,NA,6.86,30,7.7,,,,
+SRR5961999,Nucleus Accumbens (Nac),female,MDD,NA,Suicide,NA,NA,6.73,20,8.1,,,,
+SRR5962000,Nucleus Accumbens (Nac),male,MDD,yes,Suicide,no,anticonvulsivant,6.68,24,8.4,,,,
+SRR5962001,Nucleus Accumbens (Nac),male,MDD,no,Suicide,NA,no,6.93,36,7.5,,,,
+SRR5962002,Nucleus Accumbens (Nac),female,MDD,yes,Suicide,NA,AP,6.53,15,8.4,,,,
+SRR5962003,Nucleus Accumbens (Nac),female,MDD,yes,Suicide,No,AD,6.79,36,8,,,,
+SRR5962004,Nucleus Accumbens (Nac),female,CTRL,yes,Suicide,NA,AD,6.73,29.5,7.2,,,,
+SRR5962005,Nucleus Accumbens (Nac),male,MDD,no,Suicide,no,no,6.96,27,7.7,,,,
+SRR5962006,Nucleus Accumbens (Nac),male,MDD,NA,Suicide,no,NA,6.93,32,8.2,,,,
+SRR5962007,Nucleus Accumbens (Nac),male,MDD,yes,Suicide,no,AD,6.37,18.5,7.5,,,,
+SRR5962008,Nucleus Accumbens (Nac),female,MDD,yes,Suicide,NA,AD,6.81,49.5,7.7,,,,
+SRR5962009,Nucleus Accumbens (Nac),male,MDD,yes,Suicide,no,NA,6.95,50,7.8,,,,
+SRR5962010,Nucleus Accumbens (Nac),female,MDD,yes,Suicide,NA,AP,6.55,56,7.6,,,,
+SRR5962011,Nucleus Accumbens (Nac),female,MDD,yes,Suicide,No,AD,6.77,28.5,8.7,,,,
+SRR5962012,Nucleus Accumbens (Nac),male,MDD,no,Suicide,no,no,6.56,49,8.5,,,,
+SRR5962013,Nucleus Accumbens (Nac),male,MDD,no,Suicide,no,no,6.85,56,8.3,,,,
+SRR5962014,Nucleus Accumbens (Nac),male,CTRL,no,Suicide,no,no,6.83,59,8.8,,,,
+SRR5962015,Nucleus Accumbens (Nac),female,MDD,yes,Suicide,NA,AD,6.89,41,8.3,,,,
+SRR5962016,Nucleus Accumbens (Nac),male,CTRL,no,Natural,NA,no,6.11,10,6.8,,,,
+SRR5962017,Nucleus Accumbens (Nac),female,MDD,yes,Suicide,No,Lithium,6.5,2.5,7.7,,,,
+SRR5962018,Nucleus Accumbens (Nac),female,CTRL,no,Accident,no,no,6.4,7.5,7.2,,,,
+SRR5962019,Nucleus Accumbens (Nac),male,MDD,yes,Suicide,no,AD,6.25,6.5,8.1,,,,
+SRR5962020,Nucleus Accumbens (Nac),female,CTRL,no,Natural,no,no,6.1,17,7.4,,,,
+SRR5962021,Nucleus Accumbens (Nac),female,MDD,NA,Suicide,NA,NA,6.7,12,7.5,,,,
+SRR5962022,Nucleus Accumbens (Nac),male,CTRL,NA,Suicide,NA,NA,6.4,4,7.5,,,,
+SRR5962023,Nucleus Accumbens (Nac),female,CTRL,yes,Suicide,no,AD,6.5,44,7.8,,,,
+SRR5962024,Nucleus Accumbens (Nac),female,MDD,NA,Suicide,NA,NA,6.5,17.5,7.3,,,,
+SRR5962025,Nucleus Accumbens (Nac),female,CTRL,NA,Natural,NA,NA,7,106,7.6,,,,
+SRR5962026,Nucleus Accumbens (Nac),female,MDD,yes,Suicide,No,Lithium,6.9,7.5,7.8,,,,
+SRR5962027,Nucleus Accumbens (Nac),female,MDD,NA,Suicide,NA,NA,6.5,4.5,7.8,,,,
+SRR5962028,Nucleus Accumbens (Nac),female,CTRL,no,Suicide,no,no,6.7,38,8.3,,,,
+SRR5962029,Nucleus Accumbens (Nac),female,CTRL,no,Suicide,NA,no,7,2,8.2,,,,
+SRR5962030,Nucleus Accumbens (Nac),female,CTRL,NA,Natural,NA,NA,6.21,8.5,8.2,,,,
+SRR5962031,Nucleus Accumbens (Nac),female,MDD,yes,Suicide,NA,AD,6.27,3,9.1,,,,
+SRR5962032,Nucleus Accumbens (Nac),male,CTRL,NA,Accident,NA,NA,6.76,23.5,8.6,,,,
+SRR5962033,Nucleus Accumbens (Nac),female,CTRL,no,Suicide,no,no,6.71,16,7.8,,,,
+SRR5962034,Subiculum (Sub),male,CTRL,no,Natural,no,no,6.49,12,7.2,,,,
+SRR5962035,Subiculum (Sub),male,CTRL,no,Natural,no,no,6,24,6.5,,,,
+SRR5962036,Subiculum (Sub),male,CTRL,no,Accident,no,no,6.67,29.5,7.3,,,,
+SRR5962037,Subiculum (Sub),male,CTRL,no,Suicide,NA,no,6.74,27.75,6.4,,,,
+SRR5962038,Subiculum (Sub),male,CTRL,no,Suicide,NA,no,6.26,29.75,5.8,,,,
+SRR5962039,Subiculum (Sub),male,MDD,NA,Suicide,no,NA,6.57,32,7.5,,,,
+SRR5962040,Subiculum (Sub),male,CTRL,NA,Suicide,yes,NA,6.68,18,6.7,,,,
+SRR5962041,Subiculum (Sub),male,CTRL,NA,Suicide,NA,NA,6.84,44.5,7.4,,,,
+SRR5962042,Subiculum (Sub),male,MDD,NA,Suicide,no,NA,6.91,33.5,7.5,,,,
+SRR5962043,Subiculum (Sub),male,MDD,yes,Suicide,no,AD,6,19,6,,,,
+SRR5962044,Subiculum (Sub),male,CTRL,no,Accident,no,no,6.75,24,6.7,,,,
+SRR5962045,Subiculum (Sub),male,MDD,NA,Suicide,NA,NA,6.86,30,7.3,,,,
+SRR5962046,Subiculum (Sub),male,MDD,yes,Suicide,no,anticonvulsivant,6.68,24,7.8,,,,
+SRR5962047,Subiculum (Sub),female,MDD,yes,Suicide,NA,AP,6.53,15,7.7,,,,
+SRR5962048,Subiculum (Sub),female,MDD,yes,Suicide,No,AD,6.79,36,7.1,,,,
+SRR5962049,Subiculum (Sub),female,CTRL,yes,Suicide,NA,AD,6.73,29.5,7.3,,,,
+SRR5962050,Subiculum (Sub),male,MDD,no,Suicide,no,no,6.96,27,8.3,,,,
+SRR5962051,Subiculum (Sub),male,MDD,NA,Suicide,no,NA,6.93,32,8.2,,,,
+SRR5962052,Subiculum (Sub),male,MDD,yes,Suicide,no,AD,6.37,18.5,8.7,,,,
+SRR5962053,Subiculum (Sub),female,MDD,yes,Suicide,NA,AD,6.81,49.5,5.9,,,,
+SRR5962054,Subiculum (Sub),male,MDD,yes,Suicide,no,NA,6.95,50,9.4,,,,
+SRR5962055,Subiculum (Sub),female,MDD,yes,Suicide,NA,AP,6.55,56,6.6,,,,
+SRR5962056,Subiculum (Sub),female,MDD,yes,Suicide,No,AD,6.77,28.5,7.4,,,,
+SRR5962057,Subiculum (Sub),male,MDD,no,Suicide,no,no,6.56,49,6.7,,,,
+SRR5962058,Subiculum (Sub),male,MDD,no,Suicide,no,no,6.85,56,7,,,,
+SRR5962059,Subiculum (Sub),male,CTRL,no,Suicide,no,no,6.83,59,7.6,,,,
+SRR5962060,Subiculum (Sub),female,MDD,yes,Suicide,NA,AD,6.89,41,7.7,,,,
+SRR5962061,Subiculum (Sub),male,CTRL,no,Natural,NA,no,6.11,10,6.3,,,,
+SRR5962062,Subiculum (Sub),female,MDD,yes,Suicide,No,Lithium,6.5,2.5,6.7,,,,
+SRR5962063,Subiculum (Sub),male,MDD,yes,Suicide,no,AD,6.25,6.5,7,,,,
+SRR5962064,Subiculum (Sub),female,CTRL,no,Natural,no,no,6.1,17,5.1,,,,
+SRR5962065,Subiculum (Sub),female,MDD,NA,Suicide,NA,NA,6.7,12,7.4,,,,
+SRR5962066,Subiculum (Sub),male,CTRL,NA,Suicide,NA,NA,6.4,4,6.4,,,,
+SRR5962067,Subiculum (Sub),female,CTRL,yes,Suicide,no,AD,6.5,44,6.4,,,,
+SRR5962068,Subiculum (Sub),female,MDD,NA,Suicide,NA,NA,6.5,17.5,7.7,,,,
+SRR5962069,Subiculum (Sub),female,MDD,yes,Suicide,No,Lithium,6.9,7.5,6.6,,,,
+SRR5962070,Subiculum (Sub),female,MDD,NA,Suicide,NA,NA,6.5,4.5,7.7,,,,
+SRR5962071,Subiculum (Sub),female,CTRL,no,Suicide,no,no,6.7,38,7.3,,,,
+SRR5962072,Subiculum (Sub),female,CTRL,no,Suicide,NA,no,7,2,7.3,,,,
+SRR5962073,Subiculum (Sub),female,CTRL,NA,Natural,NA,NA,6.21,8.5,7.6,,,,
+SRR5962074,Subiculum (Sub),female,MDD,yes,Suicide,NA,AD,6.27,3,7.6,,,,
+SRR5962075,Subiculum (Sub),male,CTRL,NA,Accident,NA,NA,6.76,23.5,7.2,,,,
+SRR5962076,Subiculum (Sub),female,CTRL,no,Suicide,no,no,6.71,16,8,,,,
+SRR6443679,Nucleus Accumbens (Nac),male,MDD,NA,Suicide,no,NA,6.57,32,7.2,,,,
+SRR6443680,Nucleus Accumbens (Nac),male,MDD,NA,Suicide,no,NA,6.91,33.5,7.7,,,,
