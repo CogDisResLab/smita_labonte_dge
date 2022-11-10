@@ -6,7 +6,7 @@ library(tidyverse)
 library(drugfindR)
 library(org.Hs.eg.db)
 
-dge <- read.csv("Galaxy Output/OFC/OFC Overall DGE.csv") %>% mutate(GeneID = as.character(GeneID))
+dge <- read.csv("Galaxy Output/OFC/OFC_Overall_DGE.csv") %>% mutate(GeneID = as.character(GeneID))
 gns<-select(org.Hs.eg.db, as.character(dge$GeneID), c("ENTREZID","SYMBOL"),"ENTREZID")
 dge <- dge %>% inner_join(gns, by = c("GeneID"="ENTREZID"))
 

@@ -5,9 +5,10 @@ library(tidyverse)
 
 make_volcano <-
   function(filename,
+           division,
            lfc_threshold = c(1, -1),
            pval_threshold = 0.05) {
-    filepath <- file.path("Galaxy Output", "AI", filename)
+    filepath <- file.path("Galaxy Output", division, filename)
 
     brain_region <-
       str_remove(filename, "_(Female|Male|Overall|Medication)_DGE.csv")
@@ -29,7 +30,7 @@ make_volcano <-
     }
 
     dataset <- read_csv(filepath, show_col_types = FALSE) |>
-      select(SYMBOL, logFC, PValue) |>
+      select(GeneID, logFC, PValue) |>
       mutate(
         log_Pvalue = -log10(PValue),
         Significant = case_when(
@@ -92,7 +93,10 @@ make_volcano <-
   }
 
 
-files <- list.files(file.path("results", "HISAT2"), "dge")
+files <- list.files(file.path("Galaxy Output"), "csv", recursive = TRUE, full.names = TRUE) %>%
+  str_split("/", simplify = TRUE) %>%
+  as.data.frame() %>%
+  select(-V1)
 
 plots <- files |>
-  map(make_volcano)
+  pmap(~ make_volcano(..2, ..1))

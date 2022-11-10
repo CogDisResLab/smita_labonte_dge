@@ -22,7 +22,7 @@ drugfind_results <- investigate_signature(dge, "CP",
 
 drugfind_results_2 <- investigate_signature(dge, "CP",
                                             similarity_threshold = 0.2,
-                                            filter_threshold = 0.95,
+                                            filter_prop = 0.95,
                                             discordant = TRUE,
                                             gene_column = "SYMBOL",
                                             logfc_column = "logFC",
