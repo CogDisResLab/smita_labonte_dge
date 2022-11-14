@@ -7,13 +7,13 @@ library(org.Hs.eg.db)
 
 
 #Change GeneIDs to Gene Symbols in DGE
-dge <- read.csv("Galaxy Output/OFC/OFC_Female_DGE.csv") %>% mutate(GeneID = as.character(GeneID))
+dge <- read.csv("Galaxy Output/NA/NA_Male_DGE.csv") %>% mutate(GeneID = as.character(GeneID))
 gns <-select(org.Hs.eg.db, as.character(dge$GeneID), c("ENTREZID","SYMBOL"),"ENTREZID")
 dge <- dge %>% inner_join(gns, by = c("GeneID"="ENTREZID")) %>%
   filter(!is.na(SYMBOL))
 
 #Change GeneIDs to Gene Symbols in Count Matrix
-count <- read.csv("Galaxy Count Matrix Output/OFC/OFC_Female_Counts.csv") %>% mutate(Geneid = as.character(Geneid))
+count <- read.csv("Galaxy Count Matrix Output/NA/NA_Male_Counts.csv") %>% mutate(Geneid = as.character(Geneid))
 gns1 <-select(org.Hs.eg.db, as.character(count$Geneid), c("ENTREZID","SYMBOL"),"ENTREZID")
 count <- count %>% inner_join(gns, by = c("Geneid"="ENTREZID"))%>%
   filter(!is.na(SYMBOL))
@@ -30,7 +30,7 @@ ofc_bot_dge <- dge %>%
 
 
 filtered_count <- count %>%
-    filter (SYMBOL %in% c(ofc_top_dge$SYMBOL, ofc_bot_dge$SYMBOL))
+  filter (SYMBOL %in% c(ofc_top_dge$SYMBOL, ofc_bot_dge$SYMBOL))
 
 count_matrix <- filtered_count %>%
   column_to_rownames ("SYMBOL") %>%
@@ -41,7 +41,7 @@ ctmx <- count_matrix + 1
 
 lctmtx <- log(ctmx)
 
-colnames(lctmtx) <- paste0("Sample", 1:22)
+colnames(lctmtx) <- paste0("Sample", 1:28)
 
 # heatmap(lctmtx)
 
