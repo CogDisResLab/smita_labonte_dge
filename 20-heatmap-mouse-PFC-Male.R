@@ -9,7 +9,7 @@ library(org.Mm.eg.db)
 
 
 #Change GeneIDs to Gene Symbols in DGE
-dge <- read.csv("Galaxy Output/Mouse PFC/Mouse_PFC_Females_DGE.csv") %>%
+dge <- read.csv("Galaxy Output/Mouse PFC/Mouse_PFC_Males_DGE.csv") %>%
   mutate(GeneID = as.character(GeneID))
 gns <- select(org.Mm.eg.db, as.character(dge$GeneID), c("ENTREZID","SYMBOL"),"ENTREZID")
 mapped <- select(Orthology.eg.db, gns$ENTREZID, "Homo_sapiens","Mus_musculus") %>%
@@ -22,7 +22,7 @@ mapped_mouse <- mapped |>
 dge <- dge %>% inner_join(mapped_mouse, by = c("GeneID"="Mus_musculus"))
 
 #Change GeneIDs to Gene Symbols in Count Matrix
-count <- read.csv("Galaxy Count Matrix Output/Mouse PFC/Mouse_PFC_Female_Counts.csv") %>%
+count <- read.csv("Galaxy Count Matrix Output/Mouse PFC/Mouse_PFC_Male_Counts.csv") %>%
   mutate(Geneid = as.character(Geneid))
 gns1 <- select(org.Mm.eg.db, as.character(count$Geneid), c("ENTREZID","SYMBOL"),"ENTREZID")
 count_mapped <- select(Orthology.eg.db, gns1$ENTREZID, "Homo_sapiens","Mus_musculus") %>%
