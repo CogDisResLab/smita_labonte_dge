@@ -58,7 +58,7 @@ dge_dlpfc_symboled <- dge_dlpfc |>
 
 # NA ---------------------------------------------------------------------
 
-dge_na <- read_csv(files[6], col_types = cols(.default = col_character())) |>
+dge_na <- read_csv(files[4], col_types = cols(.default = col_character())) |>
   dplyr::select(GeneID, logFC) |>
   dplyr::rename(NAA = logFC)
 
@@ -73,7 +73,7 @@ dge_na_symboled <- dge_na |>
 
 # OFC ---------------------------------------------------------------------
 
-dge_ofc <- read_csv(files[7], col_types = cols(.default = col_character())) |>
+dge_ofc <- read_csv(files[5], col_types = cols(.default = col_character())) |>
   dplyr::select(GeneID, logFC) |>
   dplyr::rename(OFC = logFC)
 
@@ -88,7 +88,7 @@ dge_ofc_symboled <- dge_ofc |>
 
 # Sub ---------------------------------------------------------------------
 
-dge_sub <- read_csv(files[8], col_types = cols(.default = col_character())) |>
+dge_sub <- read_csv(files[6], col_types = cols(.default = col_character())) |>
   dplyr::select(GeneID, logFC) |>
   dplyr::rename(SUB = logFC)
 
