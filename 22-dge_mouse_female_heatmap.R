@@ -12,7 +12,7 @@ files <- list.files("Galaxy Output/", "*.csv", full.names = TRUE, recursive = TR
 
 # NA ---------------------------------------------------------------------
 
-dge_na <- read_csv(files[4], col_types = cols(.default = col_character())) |>
+dge_na <- read_csv(files[1], col_types = cols(.default = col_character())) |>
   dplyr::select(GeneID, logFC) |>
   dplyr::rename(NAA = logFC) |>
   mutate(GeneID = as.character(GeneID))
@@ -41,7 +41,7 @@ dge_na_symboled <- dge_na |>
 
 # PFC ---------------------------------------------------------------------
 
-dge_pfc <- read_csv(files[5], col_types = cols(.default = col_character())) |>
+dge_pfc <- read_csv(files[2], col_types = cols(.default = col_character())) |>
   dplyr::select(GeneID, logFC) |>
   dplyr::rename(PFC = logFC) |>
   mutate(GeneID = as.character(GeneID))
