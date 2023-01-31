@@ -14,8 +14,8 @@ drugfind_results_AI <- investigate_signature(dge, "CP",
                                           filter_prop = 0.95,
                                           gene_column = "Name_GeneSymbol",
                                           logfc_column = "AI",
-                                          pval_column = NULL,
-                                          source_name = "AI_Overall1")
+                                          pval_column = NA,
+                                          source_name = "AI_Overall_Up")
 #generate drugs for bottom 5%
 drugfind_results_AI2 <- investigate_signature(dge, "CP",
                                             similarity_threshold = 0.2,
@@ -23,8 +23,8 @@ drugfind_results_AI2 <- investigate_signature(dge, "CP",
                                             discordant = TRUE,
                                             gene_column = "Name_GeneSymbol",
                                             logfc_column = "AI",
-                                            pval_column = NULL,
-                                            source_name = "AI_Overall2")
+                                            pval_column = NA,
+                                            source_name = "AI_Overall_Dn")
 
 #combine top and bottom drugs
 drugfindAI <- bind_rows(drugfind_results_AI, drugfind_results_AI2)
@@ -38,8 +38,8 @@ drugfind_results_CG <- investigate_signature(dge, "CP",
                                              filter_prop = 0.95,
                                              gene_column = "Name_GeneSymbol",
                                              logfc_column = "CG",
-                                             pval_column = NULL,
-                                             source_name = "CG_Overall1")
+                                             pval_column = NA,
+                                             source_name = "CG_Overall_Up")
 #generate drugs for bottom 5%
 drugfind_results_CG2 <- investigate_signature(dge, "CP",
                                               similarity_threshold = 0.2,
@@ -47,8 +47,8 @@ drugfind_results_CG2 <- investigate_signature(dge, "CP",
                                               discordant = TRUE,
                                               gene_column = "Name_GeneSymbol",
                                               logfc_column = "CG",
-                                              pval_column = NULL,
-                                              source_name = "CG_Overall2")
+                                              pval_column = NA,
+                                              source_name = "CG_Overall_Dn")
 
 #combine top and bottom drugs
 drugfindCG <- bind_rows(drugfind_results_CG, drugfind_results_CG2)
@@ -62,8 +62,8 @@ drugfind_results_DLPFC <- investigate_signature(dge, "CP",
                                              filter_prop = 0.95,
                                              gene_column = "Name_GeneSymbol",
                                              logfc_column = "DLPFC",
-                                             pval_column = NULL,
-                                             source_name = "DLPFC_Overall1")
+                                             pval_column = NA,
+                                             source_name = "DLPFC_Overall_Up")
 #generate drugs for bottom 5%
 drugfind_results_DLPFC2 <- investigate_signature(dge, "CP",
                                               similarity_threshold = 0.2,
@@ -71,8 +71,8 @@ drugfind_results_DLPFC2 <- investigate_signature(dge, "CP",
                                               discordant = TRUE,
                                               gene_column = "Name_GeneSymbol",
                                               logfc_column = "DLPFC",
-                                              pval_column = NULL,
-                                              source_name = "DLPFC_Overall2")
+                                              pval_column = NA,
+                                              source_name = "DLPFC_Overall_Dn")
 
 #combine top and bottom drugs
 drugfindDLPFC <- bind_rows(drugfind_results_DLPFC, drugfind_results_DLPFC2)
@@ -86,8 +86,8 @@ drugfind_results_NAA <- investigate_signature(dge, "CP",
                                                 filter_prop = 0.95,
                                                 gene_column = "Name_GeneSymbol",
                                                 logfc_column = "NAA",
-                                                pval_column = NULL,
-                                                source_name = "NAA_Overall1")
+                                                pval_column = NA,
+                                                source_name = "NAA_Overall_Up")
 #generate drugs for bottom 5%
 drugfind_results_NAA2 <- investigate_signature(dge, "CP",
                                                  similarity_threshold = 0.2,
@@ -95,8 +95,8 @@ drugfind_results_NAA2 <- investigate_signature(dge, "CP",
                                                  discordant = TRUE,
                                                  gene_column = "Name_GeneSymbol",
                                                  logfc_column = "NAA",
-                                                 pval_column = NULL,
-                                                 source_name = "NAA_Overall2")
+                                                 pval_column = NA,
+                                                 source_name = "NAA_Overall_Dn")
 
 #combine top and bottom drugs
 drugfindNAA <- bind_rows(drugfind_results_NAA, drugfind_results_NAA2)
@@ -110,8 +110,8 @@ drugfind_results_OFC <- investigate_signature(dge, "CP",
                                               filter_prop = 0.95,
                                               gene_column = "Name_GeneSymbol",
                                               logfc_column = "OFC",
-                                              pval_column = NULL,
-                                              source_name = "OFC_Overall1")
+                                              pval_column = NA,
+                                              source_name = "OFC_Overall_Up")
 #generate drugs for bottom 5%
 drugfind_results_OFC2 <- investigate_signature(dge, "CP",
                                                similarity_threshold = 0.2,
@@ -119,8 +119,8 @@ drugfind_results_OFC2 <- investigate_signature(dge, "CP",
                                                discordant = TRUE,
                                                gene_column = "Name_GeneSymbol",
                                                logfc_column = "OFC",
-                                               pval_column = NULL,
-                                               source_name = "OFC_Overall2")
+                                               pval_column = NA,
+                                               source_name = "OFC_Overall_Dn")
 
 #combine top and bottom drugs
 drugfindOFC <- bind_rows(drugfind_results_OFC, drugfind_results_OFC2)
@@ -134,8 +134,8 @@ drugfind_results_SUB <- investigate_signature(dge, "CP",
                                               filter_prop = 0.95,
                                               gene_column = "Name_GeneSymbol",
                                               logfc_column = "SUB",
-                                              pval_column = NULL,
-                                              source_name = "SUB_Overall1")
+                                              pval_column = NA,
+                                              source_name = "SUB_Overall_Up")
 #generate drugs for bottom 5%
 drugfind_results_SUB2 <- investigate_signature(dge, "CP",
                                                similarity_threshold = 0.2,
@@ -143,8 +143,8 @@ drugfind_results_SUB2 <- investigate_signature(dge, "CP",
                                                discordant = TRUE,
                                                gene_column = "Name_GeneSymbol",
                                                logfc_column = "SUB",
-                                               pval_column = NULL,
-                                               source_name = "SUB_Overall2")
+                                               pval_column = NA,
+                                               source_name = "SUB_Overall_Dn")
 
 #combine top and bottom drugs
 drugfindSUB <- bind_rows(drugfind_results_SUB, drugfind_results_SUB2)
