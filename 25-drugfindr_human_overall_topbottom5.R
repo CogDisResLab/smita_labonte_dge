@@ -4,7 +4,14 @@ library(tidyverse)
 library(drugfindR)
 library(org.Hs.eg.db)
 
-dge <- read.csv("results/Human_DGE-L1000_Matrix_Overall_topbottom5.csv")
+dge <- read.csv("results/Human_DGE-L1000_Matrix_Overall.csv")
+# NOTE: the generated Overall_drugfindR_topbottom5.csv file in results should be
+# ignored because it used the Human_DGE-L1000_Matrix_Overall_topbottom5 file as input,
+# which was already filtered and the filter_prop below filtered it more -
+# this is not what we want (remember smaller n (genes) = greater # CPs)
+
+# NOTE: This script does not accurately generate top/bottom CPs for top and bottom 5%
+# of genes. This script needs to be fixed and DrugFindR needs to be run again
 
 # Run DrugFindR on Anterior Insula -------------------------------------------
 
@@ -160,4 +167,5 @@ drugfindAll <- drugfindAI |>
   full_join(drugfindOFC) |>
   full_join(drugfindSUB) |>
 
-  write_csv("figures/DrugFindR_Output/Human/Overall_drugfindR_topbottom5.csv")
+  write_csv("figures/DrugFindR_Output/Human/Overall_drugfindR_nofilterprop.csv")
+

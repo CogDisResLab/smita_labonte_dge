@@ -179,5 +179,5 @@ diff_expr_modified <- read_csv("results/Human_DGE-L1000_Matrix_Overall_topbottom
   column_to_rownames("Name_GeneSymbol") |>
   as.matrix()
 
-heatmap(diff_expr_modified)
+pheatmap(diff_expr_modified,)
 #need to add scale
