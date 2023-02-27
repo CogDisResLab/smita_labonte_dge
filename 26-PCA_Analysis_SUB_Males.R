@@ -34,12 +34,14 @@ pca.data <- data.frame(Sample=rownames(pca$x),
                        X=pca$x[,1],
                        Y=pca$x[,2],
                        Sex=SUB_metadata$gender[SUB_metadata$gender == "male"],
-                       Diagnosis=SUB_metadata$phenotype[SUB_metadata$gender == "male"])
+                       Diagnosis=SUB_metadata$phenotype[SUB_metadata$gender == "male"],
+                       Death=SUB_metadata$Cause_of_death[SUB_metadata$gender == "male"])
 pca.data
 
 #remove color in line 43 and scale on line 49 when filtering by gender
-ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape = Sex, color = Diagnosis)) +
+ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape = Death, color = Diagnosis)) +
   geom_point() +
+  #geom_label() +
   xlab(paste("PC1 - ", pca.var.per[1], "%", sep="")) +
   ylab(paste("PC2 - ", pca.var.per[2], "%", sep="")) +
   theme_bw() +

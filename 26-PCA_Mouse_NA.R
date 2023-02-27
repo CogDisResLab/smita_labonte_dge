@@ -1,26 +1,23 @@
 library(tidyverse)
 
-#Load OFC metadata: Comparison MDD vs. CTRL for Females ------------------------
-OFC_metadata <- read_csv("data/GSE102556-OFC-metadata.csv")
-OFC_count <-
-  read_csv("Galaxy Count Matrix Mapped/OFC/OFC_Overall_Mapped_Final.csv") %>%
+#Load Mouse NA metadata:--------------------------------------------------------
+NA_metadata <- read_csv("data/GSE102556-SRA-Mouse-NA-Metadata.csv")
+NA_count <-
+  read_csv("Galaxy Count Matrix Mapped/Mouse NA/NA_Mouse_Overall_Mapped_Final.csv") %>%
   column_to_rownames("Geneid")
 
-mask <- rowSums(OFC_count) > 48
+mask <- rowSums(NA_count) > 48
 
-OFC_count_filtered <- OFC_count[mask,]
+NA_count_filtered <- NA_count[mask,]
 
 #Select row and gender columns for further analysis
-OFC_metadata_truncated <- OFC_metadata %>%
-  dplyr::select(Run, gender, phenotype, medication, Cause_of_death) %>%
+NA_metadata_truncated <- NA_metadata %>%
+  dplyr::select(Run, gender, Phenotype) %>%
   column_to_rownames("Run") %>%
   as.matrix()
 
-#Add this line if we want to filter by gender
-ofc_count_female <- OFC_count_filtered[, OFC_metadata_truncated[,1] == "female"]
-
 #Extract principal components
-pca = prcomp(t(ofc_count_female), scale = TRUE)
+pca = prcomp(t(NA_count_filtered), scale = TRUE)
 
 pca.var <- pca$sdev^2
 pca.var.per <- round(pca.var/sum(pca.var)*100, 1)
@@ -33,19 +30,19 @@ library(ggplot2)
 pca.data <- data.frame(Sample=rownames(pca$x),
                        X=pca$x[,1],
                        Y=pca$x[,2],
-                       Sex=OFC_metadata$gender[OFC_metadata$gender == "female"],
-                       Diagnosis=OFC_metadata$phenotype[OFC_metadata$gender == "female"],
-                       Death=OFC_metadata$Cause_of_death[OFC_metadata$gender == "female"])
+                       Sex=NA_metadata$gender,
+                       Diagnosis=NA_metadata$Phenotype)
 pca.data
 
-ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape = Death, color = Diagnosis)) +
+ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape=Sex, color=Diagnosis)) +
   geom_point() +
   #geom_label() +
   xlab(paste("PC1 - ", pca.var.per[1], "%", sep="")) +
+  #scale_x_continuous(limits = c(-200, 200)) +
   ylab(paste("PC2 - ", pca.var.per[2], "%", sep="")) +
   theme_bw() +
-  ggtitle("OFC MDD vs CTRL (Females) PCA Graph") +
-  scale_color_manual(values = c("darkgreen", "red"), breaks = c("MDD", "CTRL"))
+  ggtitle("Mouse NA PCA Graph") +
+  scale_color_manual(values = c("darkgreen", "red"), breaks = c("Stress", "CTRL"))
 
 ## get the name of the top 10 measurements (genes) that contribute
 ## most to pc1.

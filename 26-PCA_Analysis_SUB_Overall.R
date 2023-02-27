@@ -31,13 +31,17 @@ pca.data <- data.frame(Sample=rownames(pca$x),
                        X=pca$x[,1],
                        Y=pca$x[,2],
                        Sex=SUB_metadata$gender,
-                       Diagnosis=SUB_metadata$phenotype)
+                       Diagnosis=SUB_metadata$phenotype,
+                       Death=SUB_metadata$Cause_of_death)
 pca.data
 
-ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape = Sex, color = Diagnosis)) +
+ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape = Death, color = Diagnosis)) +
   geom_point() +
+  #geom_label() +
   xlab(paste("PC1 - ", pca.var.per[1], "%", sep="")) +
+  #scale_x_continuous(limits = c(-200, 200)) +
   ylab(paste("PC2 - ", pca.var.per[2], "%", sep="")) +
+  #scale_y_continuous(limits = c(-50, 50)) +
   theme_bw() +
   ggtitle("SUB MDD vs CTRL (Overall) PCA Graph") +
   scale_color_manual(values = c("darkgreen", "red"), breaks = c("MDD", "CTRL"))

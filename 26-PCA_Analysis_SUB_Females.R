@@ -19,6 +19,11 @@ SUB_metadata_truncated <- SUB_metadata %>%
 #Add this line if we want to filter by gender
 sub_count_female <- SUB_count_filtered[, SUB_metadata_truncated[,1] == "female"]
 
+#for male samples, filter out rows that have low/0 variance
+sub_count_female <- sub_count_female[
+  rowSums(sub_count_female) > sum(SUB_metadata_truncated[,1] == "female"),
+]
+
 #Extract principal components
 pca = prcomp(t(sub_count_female), scale = TRUE)
 
@@ -34,11 +39,13 @@ pca.data <- data.frame(Sample=rownames(pca$x),
                        X=pca$x[,1],
                        Y=pca$x[,2],
                        Sex=SUB_metadata$gender[SUB_metadata$gender == "female"],
-                       Diagnosis=SUB_metadata$phenotype[SUB_metadata$gender == "female"])
+                       Diagnosis=SUB_metadata$phenotype[SUB_metadata$gender == "female"],
+                       Death=SUB_metadata$Cause_of_death[SUB_metadata$gender == "female"])
 pca.data
 
-ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape = Sex, color = Diagnosis)) +
+ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape = Death, color = Diagnosis)) +
   geom_point() +
+  #geom_label() +
   xlab(paste("PC1 - ", pca.var.per[1], "%", sep="")) +
   ylab(paste("PC2 - ", pca.var.per[2], "%", sep="")) +
   theme_bw() +
