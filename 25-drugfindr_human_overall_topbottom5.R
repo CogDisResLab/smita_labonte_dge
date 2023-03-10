@@ -10,31 +10,42 @@ dge <- read.csv("results/Human_DGE-L1000_Matrix_Overall.csv")
 # which was already filtered and the filter_prop below filtered it more -
 # this is not what we want (remember smaller n (genes) = greater # CPs)
 
-# NOTE: This script does not accurately generate top/bottom CPs for top and bottom 5%
-# of genes. This script needs to be fixed and DrugFindR needs to be run again
-
 # Run DrugFindR on Anterior Insula -------------------------------------------
 
-#generate drugs for top 5%
-drugfind_results_AI <- investigate_signature(dge, "CP",
+#generate concordant and discordant drugs for top and bottom 5% of L1000 genes
+drugfind_results_AI_top <- investigate_signature(dge, "CP",
                                           similarity_threshold = 0.2,
                                           filter_prop = 0.95,
                                           gene_column = "Name_GeneSymbol",
                                           logfc_column = "AI",
                                           pval_column = NA,
                                           source_name = "AI_Overall_Up")
-#generate drugs for bottom 5%
-drugfind_results_AI2 <- investigate_signature(dge, "CP",
+
+#separate drugs into one of four conditions: top_concordant, bot_concordant, top_discordant, bot_discordant
+x<-drugfind_results_AI_top %>%
+  mutate(Similarity_Direction = if_else(Similarity < 0, "Discordant", "Concordant")) %>%
+  group_by(Similarity_Direction, InputSignatureDirection) %>%
+  nest()
+
+
+
+
+
+
+
+
+
+#generate concordant and discordant scores for bottom 5%
+drugfind_results_AI_bottom <- investigate_signature(dge, "CP",
                                             similarity_threshold = 0.2,
-                                            filter_prop = 0.95,
-                                            discordant = TRUE,
+                                            filter_prop = 0.05,
                                             gene_column = "Name_GeneSymbol",
                                             logfc_column = "AI",
                                             pval_column = NA,
                                             source_name = "AI_Overall_Dn")
 
 #combine top and bottom drugs
-drugfindAI <- bind_rows(drugfind_results_AI, drugfind_results_AI2)
+drugfindAI <- bind_rows(drugfind_results_AI_top, drugfind_results_AI_bottom)
 
 
 # Run DrugFindR on Cingulate Gyrus -------------------------------------------
