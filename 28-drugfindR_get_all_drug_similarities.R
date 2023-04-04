@@ -37,7 +37,13 @@ ai_concordants_all <- bind_rows(ai_up_concordants, ai_dn_concordants) |>
   nest()
 
 #Filters CPs by top concordant, top discordant, bottom concordant, bottom discordant
-x <- ai_concordants_all %% view (x)
+x <- ai_concordants_all %>%
+  mutate(sheet_name = str_c(sig_direction, similarity_type, collapse = "-")) %>%
+  ungroup() %>%
+  select(-sig_direction, -similarity_type) %>%
+  select(sheet_name, data) %>%
+  deframe() %>%
+  writexl::write_xlsx("results/drugfindr-l1000-exploration.xlsx")
 
 #Next, need to write output from last line into separate excel files
 
