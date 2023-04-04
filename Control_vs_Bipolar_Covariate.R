@@ -90,6 +90,11 @@ metadata_rescaled <- metadata |>
 variance_formula <-
   ~ (1|gender) + (1|diagnosis) + (1|medication) + (1|cod) + (1|drug_use) + ph + pmi + rin
 
-varPart <- fitExtractVarPartModel(dge_normalized, variance_formula, metadata)
+varPart <- fitExtractVarPartModel(dge_normalized, variance_formula, metadata_rescaled)
 
-apply(varPart, 2, \(x) round(mean(x), 4) * 100)
+varPartFit <- fitVarPartModel(dge_normalized, variance_formula, metadata_rescaled)
+
+pcs <- apply(varPart, 2, \(x) round(mean(x), 4) * 100)
+
+resids <- varPart$Residuals
+

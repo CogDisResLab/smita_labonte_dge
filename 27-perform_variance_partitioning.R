@@ -11,7 +11,11 @@ library(org.Hs.eg.db)
 
 perform_var_part <- function(region) {
   df <-
-    read_csv(str_glue("Galaxy Count Matrix Mapped/{region}/{region}_Overall_Mapped_Final.csv")) |>
+    read_csv(
+      str_glue(
+        "Galaxy Count Matrix Mapped/{region}/{region}_Overall_Mapped_Final.csv"
+      )
+    ) |>
     mutate(ENTREZID = as.character(Geneid))
 
   symbols <-
@@ -35,7 +39,8 @@ perform_var_part <- function(region) {
     rename_with(.cols = SYMBOL, ~ str_to_title(.x))
 
 
-  metadata <- read_csv(str_glue("data/GSE102556-{region}-metadata.csv")) |>
+  metadata <-
+    read_csv(str_glue("data/GSE102556-{region}-metadata.csv")) |>
     mutate(
       tissue = as_factor(str_extract(tissue, "\\((\\w+)\\)", group = 1)),
       gender = as_factor(gender),
@@ -50,17 +55,19 @@ perform_var_part <- function(region) {
       rowname = Run
     ) |>
     column_to_rownames() |>
-    dplyr::select(run = Run,
-                  tissue,
-                  gender,
-                  diagnosis,
-                  medication,
-                  medication_type,
-                  cod,
-                  drug_use,
-                  ph,
-                  pmi,
-                  rin)
+    dplyr::select(
+      run = Run,
+      tissue,
+      gender,
+      diagnosis,
+      medication,
+      medication_type,
+      cod,
+      drug_use,
+      ph,
+      pmi,
+      rin
+    )
 
   group <- factor(metadata$diagnosis)
 
@@ -68,7 +75,7 @@ perform_var_part <- function(region) {
   dge <- DGEList(
     counts = symboled_df[, 2:ncol(symboled_df)],
     samples = metadata,
-    genes = symboled_df[,1],
+    genes = symboled_df[, 1],
     group = group
   )
 
@@ -82,7 +89,8 @@ perform_var_part <- function(region) {
 
   # First find canonical correlation between the variables highly correlated will be removed
 
-  formula <- ~ gender + diagnosis + medication + medication_type + cod + drug_use + ph + pmi + rin
+  formula <-
+    ~ gender + diagnosis + medication + medication_type + cod + drug_use + ph + pmi + rin
 
   correlation_pairs <- canCorPairs(formula, as.data.frame(metadata))
   plotCorrMatrix(correlation_pairs)
@@ -92,9 +100,29 @@ perform_var_part <- function(region) {
 
 
   variance_formula <-
-    ~ (1|gender) + (1|diagnosis) + (1|medication) + (1|cod) + (1|drug_use) + ph + pmi + rin
+    ~ (1 |
+         gender) + (1 |
+                      diagnosis) + (1 |
+                                      medication) + (1 | cod) + (1 | drug_use) + ph + pmi + rin
 
-  varPart <- fitExtractVarPartModel(dge_normalized, variance_formula, metadata)
+  varPart <-
+    fitExtractVarPartModel(dge_normalized, variance_formula, metadata)
+
+  resids <- varPart |>
+    as.data.frame() |>
+    rownames_to_column("Gene") |>
+    dplyr::select(Gene, Residuals) |>
+    dplyr::mutate(Residuals = round(Residuals, 4)) |>
+    deframe()
+
+  weighted_counts <- dge_normalized * resids
+
+  out <- list(
+    model = varPart,
+    weighted_counts = weighted_counts
+  )
+
+  out
 
 }
 
@@ -104,4 +132,12 @@ results <- regions |>
   set_names() |>
   map(perform_var_part)
 
-saveRDS(file = "VarPartResults.RDS")
+saveRDS(results, file = "results/VarPartResults.RDS")
+
+output <- results |>
+  map(~ pluck(.x, "weighted_counts")) |>
+  map(~ {as.data.frame(.x) |> rownames_to_column("Gene")}) |>
+  imap(~ write_csv(
+    .x,
+    str_glue("data/GSE102556-{.y}-normalized-varianced-counts.csv")
+  ))
