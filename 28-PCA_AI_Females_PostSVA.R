@@ -17,8 +17,9 @@ AI_metadata_truncated <- AI_metadata %>%
   as.matrix()
 
 #Add these lines to filter by gender
-AI_metadata_truncated <-AI_metadata_truncated[AI_metadata_truncated[,1] == "female",]
-ai_count_female <- AI_count_filtered[, AI_metadata_truncated[,1] == "female"]
+AI_metadata_truncated <- AI_metadata_truncated[AI_metadata_truncated[,1] == "female",]
+
+ai_count_female <- AI_count_filtered[, rownames(AI_metadata_truncated)]
 
 #Extract principal components
 pca = prcomp(t(ai_count_female), scale = TRUE)
