@@ -30,14 +30,14 @@ library(ggplot2)
 pca.data <- data.frame(Sample=rownames(pca$x),
                        X=pca$x[,1],
                        Y=pca$x[,2],
-                       Sex=AI_metadata$gender,
-                       Diagnosis=AI_metadata$phenotype,
-                       Death=AI_metadata$Cause_of_death)
+                       Sex=AI_metadata_truncated[rownames(pca$x), 1],
+                       Diagnosis=AI_metadata_truncated[rownames(pca$x), 2],
+                       Death=AI_metadata_truncated[rownames(pca$x), 4])
 pca.data
 
 ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape=Death, color=Diagnosis)) +
   geom_point() +
-  #geom_label() +
+  geom_label() +
   xlab(paste("PC1 - ", pca.var.per[1], "%", sep="")) +
   #scale_x_continuous(limits = c(-200, 200)) +
   ylab(paste("PC2 - ", pca.var.per[2], "%", sep="")) +

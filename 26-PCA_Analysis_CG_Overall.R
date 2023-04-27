@@ -33,6 +33,7 @@ pca.data <- data.frame(Sample=rownames(pca$x),
                        Sex=CG_metadata$gender,
                        Diagnosis=CG_metadata$phenotype,
                        Death=CG_metadata$Cause_of_death)
+
 pca.data
 
 #remove color in line 43 and scale on line 49 when filtering by gender
