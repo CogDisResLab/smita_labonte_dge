@@ -3,7 +3,7 @@
 library(tidyverse)
 library(edgeR)
 
-perform_dge <- function(filename, aligner = "kallisto") {
+perform_dge <- function(filename) {
   filepath <- file.path("data", aligner, filename)
 
   brain_region <- filename |>
