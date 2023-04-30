@@ -1,32 +1,33 @@
 library(tidyverse)
 
-#Load AI metadata: Comparison MDD vs. CTRL for Males --------------------------
-AI_metadata <- read_csv("data/GSE102556-AI-metadata.csv")
-AI_count <-
-  read_csv("data/GSE102556-AI-normalized-varianced-counts.csv") %>%
-  column_to_rownames("Gene")
+#Load Mouse NA metadata: Comparison Stress vs. CTRL for Females ----------------
+PFC_metadata <- read_csv("data/GSE102556-SRA-Mouse-PFC-Metadata.csv")
+PFC_count <-
+  read_csv("Galaxy Count Matrix Mapped/Mouse PFC/PFC_Mouse_Overall_Mapped_Final.csv") %>%
+  column_to_rownames("Geneid")
 
-#filter out rows that have less than 48 samples (rows)
-mask <- rowSums(AI_count) > 48
+mask <- rowSums(PFC_count) > 38
 
-AI_count_filtered <- AI_count[mask,]
+PFC_count_filtered <- PFC_count[mask,]
 
 #Select row and gender columns for further analysis
-AI_metadata_truncated <- AI_metadata %>%
-  dplyr::select(Run, gender, phenotype, medication, Cause_of_death) %>%
+PFC_metadata_truncated <- PFC_metadata %>%
+  dplyr::select(Run, gender, Phenotype) %>%
   column_to_rownames("Run") %>%
   as.matrix()
 
-#Add this line if we want to filter by gender
-ai_count_male <- AI_count_filtered[, AI_metadata_truncated[,1] == "male"]
+#Add these lines to filter by gender
+PFC_metadata_truncated <- PFC_metadata_truncated[PFC_metadata_truncated[,1] == "male",]
 
-#for male samples, filter out rows that have low/0 variance
-ai_count_male <- ai_count_male[
-  rowSums(ai_count_male) > sum(AI_metadata_truncated[,1] == "male"),
+pfc_count_male <- PFC_count_filtered[, rownames(PFC_metadata_truncated)]
+
+#for female samples, filter out rows that have low/0 variance
+pfc_count_male <- pfc_count_male[
+  rowSums(pfc_count_male) > sum(PFC_metadata_truncated[,1] == "male"),
 ]
 
 #Extract principal components
-pca = prcomp(t(ai_count_male), scale = TRUE)
+pca = prcomp(t(pfc_count_male), scale = TRUE)
 
 pca.var <- pca$sdev^2
 pca.var.per <- round(pca.var/sum(pca.var)*100, 1)
@@ -39,20 +40,21 @@ library(ggplot2)
 pca.data <- data.frame(Sample=rownames(pca$x),
                        X=pca$x[,1],
                        Y=pca$x[,2],
-                       Sex=AI_metadata$gender[AI_metadata$gender == "male"],
-                       Diagnosis=AI_metadata$phenotype[AI_metadata$gender == "male"],
-                       Death=AI_metadata$Cause_of_death[AI_metadata$gender == "male"])
+                       Z=pca$x[,3],
+                       Sex=PFC_metadata_truncated[rownames(pca$x), 1],
+                       Diagnosis=PFC_metadata_truncated[rownames(pca$x), 2])
 pca.data
 
-ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape = Death, color = Diagnosis)) +
+ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape=Sex, color=Diagnosis, size=Z)) +
   geom_point() +
   geom_label() +
   xlab(paste("PC1 - ", pca.var.per[1], "%", sep="")) +
   scale_x_continuous(limits = c(-400, 400)) +
   ylab(paste("PC2 - ", pca.var.per[2], "%", sep="")) +
   scale_y_continuous(limits = c(-400, 400)) +
+  scale_size_continuous(name = paste("PC3 - ", pca.var.per[3], "%", sep="")) +
   theme_bw() +
-  ggtitle("AI MDD vs CTRL (Males) PCA Graph") +
+  ggtitle("Mouse PFC Stress vs CTRL (Males) PCA Graph") +
   scale_color_manual(values = c("darkgreen", "red"), breaks = c("MDD", "CTRL"))
 
 ## get the name of the top 10 measurements (genes) that contribute

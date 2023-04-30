@@ -1,23 +1,23 @@
 library(tidyverse)
 
-#Load SUB metadata: Comparison MDD vs. CTRL ------------------------------------
-SUB_metadata <- read_csv("data/GSE102556-SUB-metadata.csv")
-SUB_count <-
-  read_csv("data/GSE102556-Sub-normalized-varianced-counts.csv") %>%
-  column_to_rownames("Gene")
+#Load Mouse NA metadata:--------------------------------------------------------
+PFC_metadata <- read_csv("data/GSE102556-SRA-Mouse-PFC-Metadata.csv")
+PFC_count <-
+  read_csv("Galaxy Count Matrix Mapped/Mouse PFC/PFC_Mouse_Overall_Mapped_Final.csv") %>%
+  column_to_rownames("Geneid")
 
-mask <- rowSums(SUB_count) > 48
+mask <- rowSums(PFC_count) > 48
 
-SUB_count_filtered <- SUB_count[mask,]
+PFC_count_filtered <- PFC_count[mask,]
 
 #Select row and gender columns for further analysis
-SUB_metadata_truncated <- SUB_metadata %>%
-  dplyr::select(Run, gender, phenotype, medication, Cause_of_death) %>%
+PFC_metadata_truncated <- PFC_metadata %>%
+  dplyr::select(Run, gender, Phenotype) %>%
   column_to_rownames("Run") %>%
   as.matrix()
 
 #Extract principal components
-pca = prcomp(t(SUB_count_filtered), scale = TRUE)
+pca = prcomp(t(PFC_count_filtered), scale = TRUE)
 
 pca.var <- pca$sdev^2
 pca.var.per <- round(pca.var/sum(pca.var)*100, 1)
@@ -30,21 +30,22 @@ library(ggplot2)
 pca.data <- data.frame(Sample=rownames(pca$x),
                        X=pca$x[,1],
                        Y=pca$x[,2],
-                       Sex=SUB_metadata_truncated[rownames(pca$x), 1],
-                       Diagnosis=SUB_metadata_truncated[rownames(pca$x), 2],
-                       Death=SUB_metadata_truncated[rownames(pca$x), 4])
+                       Z=pca$x[,3],
+                       Sex=PFC_metadata_truncated[rownames(pca$x), 1],
+                       Diagnosis=PFC_metadata_truncated[rownames(pca$x), 2])
 pca.data
 
-ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape = Death, color = Diagnosis)) +
+ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape=Sex, color=Diagnosis, size=Z)) +
   geom_point() +
   geom_label() +
   xlab(paste("PC1 - ", pca.var.per[1], "%", sep="")) +
   scale_x_continuous(limits = c(-400, 400)) +
   ylab(paste("PC2 - ", pca.var.per[2], "%", sep="")) +
   scale_y_continuous(limits = c(-400, 400)) +
+  scale_size_continuous(name = paste("PC3 - ", pca.var.per[3], "%", sep="")) +
   theme_bw() +
-  ggtitle("SUB MDD vs CTRL (Overall) PCA Graph") +
-  scale_color_manual(values = c("darkgreen", "red"), breaks = c("MDD", "CTRL"))
+  ggtitle("Mouse PFC PCA Graph") +
+  scale_color_manual(values = c("darkgreen", "red"), breaks = c("Stress", "CTRL"))
 
 ## get the name of the top 10 measurements (genes) that contribute
 ## most to pc1.
@@ -56,3 +57,4 @@ top_10_genes <- names(gene_score_ranked[1:10])
 top_10_genes ## show the names of the top 10 genes
 
 pca$rotation[top_10_genes,1] ## show the scores (and +/- sign)
+

@@ -1,26 +1,28 @@
 library(tidyverse)
 
-#Load DLPFC metadata: Comparison MDD vs. CTRL for Females ------------------------
-DLPFC_metadata <- read_csv("data/GSE102556-DLPFC-metadata.csv")
-DLPFC_count <-
-  read_csv("data/GSE102556-DLPFC-normalized-varianced-counts.csv") %>%
+#Load NA metadata: Comparison MDD vs. CTRL for Males --------------------------
+NA_metadata <- read_csv("data/GSE102556-NA-metadata.csv")
+NA_count <-
+  read_csv("data/GSE102556-NA-normalized-varianced-counts.csv") %>%
   column_to_rownames("Gene")
 
-mask <- rowSums(DLPFC_count) > 48
+mask <- rowSums(NA_count) > 48
 
-DLPFC_count_filtered <- DLPFC_count[mask,]
+NA_count_filtered <- NA_count[mask,]
 
 #Select row and gender columns for further analysis
-DLPFC_metadata_truncated <- DLPFC_metadata %>%
+NA_metadata_truncated <- NA_metadata %>%
   dplyr::select(Run, gender, phenotype, medication, Cause_of_death) %>%
   column_to_rownames("Run") %>%
   as.matrix()
 
-#Add this line if we want to filter by gender
-dlpfc_count_female <- DLPFC_count_filtered[, DLPFC_metadata_truncated[,1] == "female"]
+#Add these lines to filter by gender
+NA_metadata_truncated <- NA_metadata_truncated[NA_metadata_truncated[,1] == "male",]
+
+na_count_male <- NA_count_filtered[, rownames(NA_metadata_truncated)]
 
 #Extract principal components
-pca = prcomp(t(dlpfc_count_female), scale = TRUE)
+pca = prcomp(t(na_count_male), scale = TRUE)
 
 pca.var <- pca$sdev^2
 pca.var.per <- round(pca.var/sum(pca.var)*100, 1)
@@ -33,20 +35,22 @@ library(ggplot2)
 pca.data <- data.frame(Sample=rownames(pca$x),
                        X=pca$x[,1],
                        Y=pca$x[,2],
-                       Sex=DLPFC_metadata$gender[DLPFC_metadata$gender == "female"],
-                       Diagnosis=DLPFC_metadata$phenotype[DLPFC_metadata$gender == "female"],
-                       Death=DLPFC_metadata$Cause_of_death[DLPFC_metadata$gender == "female"])
+                       Z=pca$x[,3],
+                       Sex=NA_metadata_truncated[rownames(pca$x), 1],
+                       Diagnosis=NA_metadata_truncated[rownames(pca$x), 2],
+                       Death=NA_metadata_truncated[rownames(pca$x), 4])
 pca.data
 
-ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape = Death, color = Diagnosis)) +
+ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape=Death, color=Diagnosis, size=Z)) +
   geom_point() +
   geom_label() +
   xlab(paste("PC1 - ", pca.var.per[1], "%", sep="")) +
   scale_x_continuous(limits = c(-400, 400)) +
   ylab(paste("PC2 - ", pca.var.per[2], "%", sep="")) +
   scale_y_continuous(limits = c(-400, 400)) +
+  scale_size_continuous(name = paste("PC3 - ", pca.var.per[3], "%", sep="")) +
   theme_bw() +
-  ggtitle("DLPFC MDD vs CTRL (Females) PCA Graph") +
+  ggtitle("NA MDD vs CTRL (Males) PCA Graph") +
   scale_color_manual(values = c("darkgreen", "red"), breaks = c("MDD", "CTRL"))
 
 ## get the name of the top 10 measurements (genes) that contribute

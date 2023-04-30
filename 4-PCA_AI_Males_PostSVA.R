@@ -1,31 +1,34 @@
 library(tidyverse)
 
-#Load SUB metadata: Comparison MDD vs. CTRL for Females ------------------------
-SUB_metadata <- read_csv("data/GSE102556-SUB-metadata.csv")
-SUB_count <-
-  read_csv("data/GSE102556-Sub-normalized-varianced-counts.csv") %>%
+#Load AI metadata: Comparison MDD vs. CTRL for Males --------------------------
+AI_metadata <- read_csv("data/GSE102556-AI-metadata.csv")
+AI_count <-
+  read_csv("data/GSE102556-AI-normalized-varianced-counts.csv") %>%
   column_to_rownames("Gene")
 
-mask <- rowSums(SUB_count) > 48
+#filter out rows that have less than 48 samples (rows)
+mask <- rowSums(AI_count) > 48
 
-SUB_count_filtered <- SUB_count[mask,]
+AI_count_filtered <- AI_count[mask,]
 
 #Select row and gender columns for further analysis
-SUB_metadata_truncated <- SUB_metadata %>%
+AI_metadata_truncated <- AI_metadata %>%
   dplyr::select(Run, gender, phenotype, medication, Cause_of_death) %>%
   column_to_rownames("Run") %>%
   as.matrix()
 
-#Add this line if we want to filter by gender
-sub_count_female <- SUB_count_filtered[, SUB_metadata_truncated[,1] == "female"]
+#Add these lines to filter by gender
+AI_metadata_truncated <- AI_metadata_truncated[AI_metadata_truncated[,1] == "male",]
+
+ai_count_male <- AI_count_filtered[, rownames(AI_metadata_truncated)]
 
 #for male samples, filter out rows that have low/0 variance
-sub_count_female <- sub_count_female[
-  rowSums(sub_count_female) > sum(SUB_metadata_truncated[,1] == "female"),
+ai_count_male <- ai_count_male[
+  rowSums(ai_count_male) > sum(AI_metadata_truncated[,1] == "male"),
 ]
 
 #Extract principal components
-pca = prcomp(t(sub_count_female), scale = TRUE)
+pca = prcomp(t(ai_count_male), scale = TRUE)
 
 pca.var <- pca$sdev^2
 pca.var.per <- round(pca.var/sum(pca.var)*100, 1)
@@ -38,20 +41,22 @@ library(ggplot2)
 pca.data <- data.frame(Sample=rownames(pca$x),
                        X=pca$x[,1],
                        Y=pca$x[,2],
-                       Sex=SUB_metadata$gender[SUB_metadata$gender == "female"],
-                       Diagnosis=SUB_metadata$phenotype[SUB_metadata$gender == "female"],
-                       Death=SUB_metadata$Cause_of_death[SUB_metadata$gender == "female"])
+                       Z=pca$x[,3],
+                       Sex=AI_metadata_truncated[rownames(pca$x), 1],
+                       Diagnosis=AI_metadata_truncated[rownames(pca$x), 2],
+                       Death=AI_metadata_truncated[rownames(pca$x), 4])
 pca.data
 
-ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape = Death, color = Diagnosis)) +
+ggplot(data=pca.data, aes(x=X, y=Y, label=Sample, shape=Death, color=Diagnosis, size=Z)) +
   geom_point() +
   geom_label() +
   xlab(paste("PC1 - ", pca.var.per[1], "%", sep="")) +
   scale_x_continuous(limits = c(-400, 400)) +
   ylab(paste("PC2 - ", pca.var.per[2], "%", sep="")) +
   scale_y_continuous(limits = c(-400, 400)) +
+  scale_size_continuous(name = paste("PC3 - ", pca.var.per[3], "%", sep="")) +
   theme_bw() +
-  ggtitle("SUB MDD vs CTRL (Females) PCA Graph") +
+  ggtitle("AI MDD vs CTRL (Males) PCA Graph") +
   scale_color_manual(values = c("darkgreen", "red"), breaks = c("MDD", "CTRL"))
 
 ## get the name of the top 10 measurements (genes) that contribute
