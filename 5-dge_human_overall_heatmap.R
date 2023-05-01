@@ -7,7 +7,7 @@ library(pheatmap)
 library(ggplot2)
 
 
-files <- list.files("Galaxy Output/", "*.csv", full.names = TRUE, recursive = TRUE) |>
+files <- list.files("results/2. DGEs (Galaxy) Post SVA", "*.csv", full.names = TRUE, recursive = TRUE) |>
   keep(~ str_detect(.x, "Overall"))
 
 
@@ -17,13 +17,10 @@ dge_ai <- read_csv(files[1], col_types = cols(.default = col_character())) |>
   dplyr::select(GeneID, logFC) |>
   dplyr::rename(AI = logFC)
 
-mapped_ids <- select(org.Hs.eg.db, as.character(dge_ai$GeneID), columns = c("ENTREZID", "SYMBOL"), keytype = "ENTREZID")
-
 dge_ai_symboled <- dge_ai |>
-  inner_join(mapped_ids, by = c(GeneID = "ENTREZID")) |>
-  dplyr::select(-GeneID, SYMBOL, AI) |>
+  dplyr::select(GeneID, AI) |>
   mutate(PValue = rep(0, nrow(mapped_ids))) |>
-  drugfindR::prepare_signature(gene_column = "SYMBOL", logfc_column = "AI") |>
+  drugfindR::prepare_signature(gene_column = "GeneID", logfc_column = "AI") |>
   dplyr::select(Name_GeneSymbol, AI = Value_LogDiffExp)
 
 # Cingulate Gyrus ---------------------------------------------------------
@@ -104,7 +101,7 @@ dge_sub_symboled <- dge_sub |>
 
 # Combine Dataframes ------------------------------------------------------
 
- diffexp <- dge_ai_symboled |>
+diffexp <- dge_ai_symboled |>
   inner_join(dge_cg_symboled) |>
   inner_join(dge_dlpfc_symboled) |>
   inner_join(dge_na_symboled) |>
@@ -112,14 +109,14 @@ dge_sub_symboled <- dge_sub |>
   inner_join(dge_sub_symboled) |>
 
 
-write_csv("results/Human_DGE-L1000_Matrix.csv")
+  write_csv("results/Human_DGE-L1000_Matrix.csv")
 
 
 # Heatmap Generation ------------------------------------------------------
 
 diff_expr_modified <- read_csv("results/Human_DGE-L1000_Matrix.csv") |>
-column_to_rownames("Name_GeneSymbol") |>
-as.matrix()
+  column_to_rownames("Name_GeneSymbol") |>
+  as.matrix()
 heatmap(diff_expr_modified)
 #need to add scale
 
