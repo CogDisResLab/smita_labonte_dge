@@ -7,16 +7,16 @@ make_volcano <-
            division,
            lfc_threshold = c(1, -1),
            pval_threshold = 0.05) {
-    filepath <- file.path("results/2. DGEs (Galaxy) Post SVA", division, filename)
+    filepath <- file.path("results/2. Mouse DGEs (Galaxy) No SVA", division, filename)
 
     brain_region <-
-      str_remove(filename, "_(Females|Males|Meds|Overall)_DGE.csv")
+      str_remove(filename, "_(Females|Males|Overall)_DGE.csv")
 
-    comparison <- str_extract(filename, "(Females|Males|Meds|Overall)")
+    comparison <- str_extract(filename, "(Females|Males|Overall)")
 
     figure_file <- file.path(
       "results",
-      "7. Volcano Plots",
+      "7. Mouse Volcano Plots",
       division,
       str_glue("{brain_region}-{str_to_title(comparison)}-Volcano.png")
     )
@@ -93,7 +93,7 @@ make_volcano <-
   }
 
 
-files <- list.files(file.path("results/2. DGEs (Galaxy) Post SVA"), "csv", recursive = TRUE, full.names = TRUE) %>%
+files <- list.files(file.path("results/2. Mouse DGEs (Galaxy) No SVA"), "csv", recursive = TRUE, full.names = TRUE) %>%
   str_split("/", simplify = TRUE) %>%
   as.data.frame() %>%
   select(-V1)
