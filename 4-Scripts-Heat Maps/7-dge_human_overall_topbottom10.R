@@ -17,11 +17,11 @@ dge_ai <- read_csv(files[1], col_types = cols(.default = col_character())) |>
   drugfindR::prepare_signature(gene_column = "GeneID") |>
   dplyr::select(Name_GeneSymbol, AI = Value_LogDiffExp, AI_Pval = Significance_pvalue )
 
-#Obtain the top 5% DEGs from our dataframe
+#Obtain the top 10% DEGs from our dataframe
 dge_ai_top <- dge_ai |>
   slice_max(AI, prop = 0.1)
 
-#Obtain the bottom 5% DEGs from our dataframe
+#Obtain the bottom 10% DEGs from our dataframe
 dge_ai_bottom <- dge_ai |>
   slice_min(AI, prop = 0.1)
 

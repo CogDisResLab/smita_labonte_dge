@@ -1,38 +1,37 @@
 # drugfindR: Manual procurement of all the drug similarity scores
-# Comparison: SUB top and bottom 5% from L1000 Males
+# Comparison: SUB top/bottom 5% from L1000 Males
 
 library(tidyverse)
 library(drugfindR)
 
-#Input DGE matrix
-dge <- read_csv("results/4. Top 5% Heat Maps Post SVA/Males/Human_DGE_L10005%_Males_Matrix.csv")
+#Input DGE matrix with genes for our comparison of interest
+dge <- read_csv("results/4. Top 5% Heat Maps Post SVA/Males/Human_DGE_L10005%_Males_Matrix.csv") |>
+  select(Name_GeneSymbol, starts_with("SUB")) %>%
+  filter(SUB != 0)
 
 #Extract gene signature (gene name and LFC values)
 sub_dge_sig <- dge |>
   prepare_signature(gene_column = "Name_GeneSymbol", logfc_column = "SUB",
                     pval_column = "SUB_Pval")
 
-#Extract top X% gene signature
+#Create a file listing top X% gene signature
 sub_up_sig <- sub_dge_sig |>
-  filter_signature("up", prop = 0.05) |>
+  filter_signature("up", threshold = 0) |>
   write_csv("results/6. DrugFindR Output/SUB/5%fromL1000/Males/SUB_L1000_5%_males_top_genes_sig.csv")
 
-#Extract bottom X% gene signature
+#Create a file listing bottom X% gene signature
 sub_dn_sig <- sub_dge_sig |>
-  filter_signature("down", prop = 0.05) |>
+  filter_signature("down", threshold = 0) |>
   write_csv ("results/6. DrugFindR Output/SUB/5%fromL1000/Males/SUB_L1000_5%_males_bottom_genes_sig.csv")
 
 #Extract concordant chemical perturbagens (CPs) for the top/bottom X% of genes
 sub_up_concordants <- get_concordants(sub_up_sig, sig_direction = "Up")
-#write_csv ("results/8. DrugFindR Output/AI/AI_concordant_drugs_for_top_and_bot.csv")
 
 #Extract discordant CPs for the top/bottom X% of genes
 sub_dn_concordants <- get_concordants(sub_dn_sig, sig_direction = "Down")
-#write_csv ("results/8. DrugFindR Output/AI/AI_discordant_drugs_for_top_and_bot.csv")
 
 #Combine all CPs and filter
 sub_concordants_all <- bind_rows(sub_up_concordants, sub_dn_concordants) |>
-  #write_csv("results/8. DrugFindR Output/AI/AI_all_drugs.csv") |>
   mutate(similarity_type = if_else(similarity < 0, "Discordant", "Concordant")) |>
   group_by(similarity_type, sig_direction) |>
   nest()
