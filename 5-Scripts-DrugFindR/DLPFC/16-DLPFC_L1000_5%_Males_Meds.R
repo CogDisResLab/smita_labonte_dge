@@ -45,4 +45,4 @@ x <- dlpfc_concordants_all %>%
   select(-sig_direction, -similarity_type) %>%
   select(sheet_name, data) %>%
   deframe() %>%
-  writexl::write_xlsx("results/6. DrugFindR Output/CG/5%fromL1000/Males Meds/DLPFC_L1000_5%_Males_Meds_drugfindr.xlsx")
+  writexl::write_xlsx("results/6. DrugFindR Output/DLPFC/5%fromL1000/Males Meds/DLPFC_L1000_5%_Males_Meds_drugfindr.xlsx")
