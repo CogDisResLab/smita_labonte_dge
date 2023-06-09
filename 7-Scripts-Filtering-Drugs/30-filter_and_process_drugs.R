@@ -58,8 +58,20 @@ process_comparison <- function(files, name) {
   out
 }
 
-quintiliz <- function(vector, value) {
-
+quintilize <- function(dataset) {
+  dataset |>
+    group_by(region) |>
+    mutate(quintile_rank = ntile(desc(n), 5),
+           triple = str_glue("{cellline}-{time}-{concentration}")) |>
+    select(-cellline, -time, -concentration, -n) |>
+    distinct() |>
+    pivot_wider(names_from = region, values_from = quintile_rank, values_fill = 100) |>
+    pivot_longer(cols =  c(AI, CG, DLPFC, NAC, OFC, SUB), names_to = "region", values_to = "quintile_rank") |>
+    ungroup() |>
+    group_by(triple) |>
+    mutate(mean_rank = mean(quintile_rank, na.rm = TRUE)) |>
+    pivot_wider(names_from = region, values_from = quintile_rank, values_fill = 100) |>
+    arrange(mean_rank)
 }
 
 combinations <- expand_grid(a = c("L1000", "L1000_5%", "L1000_10%"), b = c("Overall", "Males", "Females", "Males_Meds"), c = "drugfindr") |>
@@ -80,21 +92,9 @@ data_files <- combinations |>
 output <- data_files |>
   imap(~ process_comparison(.x, .y)) |>
   map(~ imap_dfr(.x, ~ count(.x, cellline, time, concentration), .id = "region")) |>
-  imap(~ write_csv(.x, str_glue("results/cell-line-exploration/{.y}_comparison_drugs.csv")))
+  imap(~ write_csv(.x, str_glue("results/cell-line-exploration/{.y}_comparison_drugs.csv"))) |>
+  map(~ quintilize(.x)) |>
+  imap(~  write_csv(.x, str_glue("results/cell-line-exploration/{.y}_comparison_triple_rank.csv"))) |>
+  writexl::write_xlsx("results/cell-line-exploration/all-drugs-selection.xlsx")
 
-
-
-x <- output[["all_overall"]] |>
-  group_by(region) |>
-  mutate(quintile_rank = ntile(desc(n), 5),
-         triple = str_glue("{cellline}-{time}-{concentration}")) |>
-  select(-cellline, -time, -concentration, -n) |>
-  distinct() |>
-  pivot_wider(names_from = region, values_from = quintile_rank, values_fill = 100) |>
-  pivot_longer(cols =  c(AI, CG, DLPFC, NAC, OFC, SUB), names_to = "region", values_to = "quintile_rank") |>
-  ungroup() |>
-  group_by(triple) |>
-  mutate(mean_rank = mean(quintile_rank, na.rm = TRUE)) |>
-  pivot_wider(names_from = region, values_from = quintile_rank, values_fill = 100) |>
-  arrange(mean_rank)
 
