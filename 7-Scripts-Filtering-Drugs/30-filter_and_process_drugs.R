@@ -2,6 +2,7 @@
 
 library(tidyverse)
 library(readxl)
+library(writexl)
 
 data_files <- list.files("results/6. DrugFindR Output/", "xlsx", recursive = TRUE, full.names = TRUE)
 
@@ -91,7 +92,7 @@ intersect_triples <- function(data_list) {
 combinations <- expand_grid(a = c("L1000", "L1000_5%", "L1000_10%"), b = c("Overall", "Males", "Females", "Males_Meds"), c = "drugfindr") |>
   mutate(filter = str_glue("{a}_{b}_{c}"),
          name_a = case_when(
-           a == "L1000" ~ "all",
+           a == "L1000" ~ "entire",
            str_detect(a, "5%") ~ "05p",
            str_detect(a, "10%") ~ "10p"
          ),
@@ -113,18 +114,44 @@ output <- data_files |>
   assign("all_output_data", value = _) |>
   imap(~  write_csv(.x, str_glue("results/cell-line-exploration/triple_comparison_top_quintile/{.y}_comparison_triple_top_quintile.csv")))
 
-cell_lines_all <- output[str_detect(names(output), "all_")] |>
+all_output_data |>
+  write_xlsx("results/cell-line-exploration/triple_ranked_comparisons.xlsx")
+
+cell_lines_entire <- output[str_detect(names(output), "entire_")] |>
   intersect_triples() |>
   str_c(collapse = "\n") |>
-  write_file("data/common_cell_lines_overall.txt")
+  write_file("data/common_cell_lines_overall.txt") |>
+  str_split("\\n", simplify = TRUE)
 
 cell_lines_05p <- output[str_detect(names(output), "05p_")] |>
   intersect_triples() |>
   str_c(collapse = "\n") |>
-  write_file("data/common_cell_lines_05p.txt")
+  write_file("data/common_cell_lines_05p.txt") |>
+  str_split("\\n", simplify = TRUE)
 
 cell_lines_10p <- output[str_detect(names(output), "10p_")] |>
   intersect_triples() |>
   str_c(collapse = "\n") |>
-  write_file("data/common_cell_lines_10p.txt")
+  write_file("data/common_cell_lines_10p.txt") |>
+  str_split("\\n", simplify = TRUE)
 
+
+filtered_entire <- data_files[str_detect(names(data_files), "entire")] |>
+  imap(~ process_comparison(.x, .y)) |>
+  map(~ imap_dfr(.x, ~ mutate(.x, triple = str_glue("{cellline}-{time}-{concentration}")), .id = "region")) |>
+  map_dfr(~ filter(.x, triple %in% cell_lines_overall), .id = "source") |>
+  write_csv("results/cell-line-exploration/filtered_entire_drug_list.csv")
+
+filtered_05p <- data_files[str_detect(names(data_files), "05p")] |>
+  imap(~ process_comparison(.x, .y)) |>
+  map(~ imap_dfr(.x, ~ mutate(.x, triple = str_glue("{cellline}-{time}-{concentration}")), .id = "region")) |>
+  map(~ filter(.x, triple %in% cell_lines_05p)) |>
+  map_dfr(~ filter(.x, triple %in% cell_lines_overall), .id = "source") |>
+  write_csv("results/cell-line-exploration/filtered_entire_drug_list.csv")
+
+filtered_10p <- data_files[str_detect(names(data_files), "10p")] |>
+  imap(~ process_comparison(.x, .y)) |>
+  map(~ imap_dfr(.x, ~ mutate(.x, triple = str_glue("{cellline}-{time}-{concentration}")), .id = "region")) |>
+  map(~ filter(.x, triple %in% cell_lines_10p)) |>
+  map_dfr(~ filter(.x, triple %in% cell_lines_overall), .id = "source") |>
+  write_csv("results/cell-line-exploration/filtered_entire_drug_list.csv")
