@@ -71,7 +71,21 @@ quintilize <- function(dataset) {
     group_by(triple) |>
     mutate(mean_rank = mean(quintile_rank, na.rm = TRUE)) |>
     pivot_wider(names_from = region, values_from = quintile_rank, values_fill = 100) |>
-    arrange(mean_rank)
+    arrange(mean_rank) |>
+    ungroup()
+}
+
+filterize <- function(dataset) {
+  dataset |>
+    mutate(mean_rank_rank = ntile(mean_rank, 5)) |>
+    filter(mean_rank_rank == 1) |>
+    select(-mean_rank_rank)
+}
+
+intersect_triples <- function(data_list) {
+  data_list |>
+    map(~ pull(.x, "triple")) |>
+    reduce(intersect)
 }
 
 combinations <- expand_grid(a = c("L1000", "L1000_5%", "L1000_10%"), b = c("Overall", "Males", "Females", "Males_Meds"), c = "drugfindr") |>
@@ -92,9 +106,25 @@ data_files <- combinations |>
 output <- data_files |>
   imap(~ process_comparison(.x, .y)) |>
   map(~ imap_dfr(.x, ~ count(.x, cellline, time, concentration), .id = "region")) |>
-  imap(~ write_csv(.x, str_glue("results/cell-line-exploration/{.y}_comparison_drugs.csv"))) |>
+  imap(~ write_csv(.x, str_glue("results/cell-line-exploration/triple_comparison_count/{.y}_comparison_drugs.csv"))) |>
   map(~ quintilize(.x)) |>
-  imap(~  write_csv(.x, str_glue("results/cell-line-exploration/{.y}_comparison_triple_rank.csv"))) |>
-  writexl::write_xlsx("results/cell-line-exploration/all-drugs-selection.xlsx")
+  imap(~  write_csv(.x, str_glue("results/cell-line-exploration/triple_comparison_rank/{.y}_comparison_triple_rank.csv"))) |>
+  map(~ filterize(.x)) |>
+  assign("all_output_data", value = _) |>
+  imap(~  write_csv(.x, str_glue("results/cell-line-exploration/triple_comparison_top_quintile/{.y}_comparison_triple_top_quintile.csv")))
 
+cell_lines_all <- output[str_detect(names(output), "all_")] |>
+  intersect_triples() |>
+  str_c(collapse = "\n") |>
+  write_file("data/common_cell_lines_overall.txt")
+
+cell_lines_05p <- output[str_detect(names(output), "05p_")] |>
+  intersect_triples() |>
+  str_c(collapse = "\n") |>
+  write_file("data/common_cell_lines_05p.txt")
+
+cell_lines_10p <- output[str_detect(names(output), "10p_")] |>
+  intersect_triples() |>
+  str_c(collapse = "\n") |>
+  write_file("data/common_cell_lines_10p.txt")
 
