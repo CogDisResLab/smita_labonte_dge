@@ -4,8 +4,6 @@ library(tidyverse)
 library(readxl)
 library(writexl)
 
-data_files <- list.files("results/6. DrugFindR Output/", "xlsx", recursive = TRUE, full.names = TRUE)
-
 read_drugfindr <- function(name) {
   if (str_detect(name, "L1000_\\D")) {
     df <- read_excel(name, sheet = "Discordant") |>
@@ -139,19 +137,17 @@ cell_lines_10p <- output[str_detect(names(output), "10p_")] |>
 filtered_entire <- data_files[str_detect(names(data_files), "entire")] |>
   imap(~ process_comparison(.x, .y)) |>
   map(~ imap_dfr(.x, ~ mutate(.x, triple = str_glue("{cellline}-{time}-{concentration}")), .id = "region")) |>
-  map_dfr(~ filter(.x, triple %in% cell_lines_overall), .id = "source") |>
+  map_dfr(~ filter(.x, triple %in% cell_lines_entire), .id = "source") |>
   write_csv("results/cell-line-exploration/filtered_entire_drug_list.csv")
 
 filtered_05p <- data_files[str_detect(names(data_files), "05p")] |>
   imap(~ process_comparison(.x, .y)) |>
   map(~ imap_dfr(.x, ~ mutate(.x, triple = str_glue("{cellline}-{time}-{concentration}")), .id = "region")) |>
-  map(~ filter(.x, triple %in% cell_lines_05p)) |>
-  map_dfr(~ filter(.x, triple %in% cell_lines_overall), .id = "source") |>
-  write_csv("results/cell-line-exploration/filtered_entire_drug_list.csv")
+  map_dfr(~ filter(.x, triple %in% cell_lines_05p), .id = "source") |>
+  write_csv("results/cell-line-exploration/filtered_05p_drug_list.csv")
 
 filtered_10p <- data_files[str_detect(names(data_files), "10p")] |>
   imap(~ process_comparison(.x, .y)) |>
   map(~ imap_dfr(.x, ~ mutate(.x, triple = str_glue("{cellline}-{time}-{concentration}")), .id = "region")) |>
-  map(~ filter(.x, triple %in% cell_lines_10p)) |>
-  map_dfr(~ filter(.x, triple %in% cell_lines_overall), .id = "source") |>
-  write_csv("results/cell-line-exploration/filtered_entire_drug_list.csv")
+  map_dfr(~ filter(.x, triple %in% cell_lines_10p), .id = "source") |>
+  write_csv("results/cell-line-exploration/filtered_10p_drug_list.csv")
