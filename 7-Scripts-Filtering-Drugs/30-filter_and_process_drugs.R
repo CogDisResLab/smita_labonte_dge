@@ -192,4 +192,7 @@ filtered_05p_sinead <- data_files[str_detect(names(data_files), fixed("05p"))] |
   mutate(pivoted = map(data, ~ pivot_wider(.x, names_from = cellline, values_from = similarity))) |>
   select(-data, -num_celllines) |>
   unnest(pivoted) |>
-  write_csv("results/cell-line-exploration/filtered_05p_sinead_drug_list_by_celllines.csv")
+  write_csv("results/cell-line-exploration/filtered_05p_sinead_drug_list_by_celllines.csv") |>
+  nest(.by = c(region, comparison)) |>
+  mutate(filename = str_glue("results/cell-line-exploration/filtered_05p_sinead_drug_list_{region}_{comparison}.csv")) |>
+  mutate(data = map2(data, filename, ~ write_csv(.x, .y)))
