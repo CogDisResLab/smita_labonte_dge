@@ -3,6 +3,8 @@
 library(tidyverse)
 library(readxl)
 library(writexl)
+library(httr)
+library(jsonlite)
 
 read_drugfindr <- function(name) {
   if (str_detect(name, "L1000_\\D")) {
@@ -93,6 +95,17 @@ intersect_triples <- function(data_list) {
   data_list |>
     map(~ pull(.x, "triple")) |>
     reduce(intersect)
+}
+
+get_ilincs_metadata <- function(X) {
+  url <- "http://www.ilincs.org/api/SignatureMeta/findMany"
+  body <- list(signatures = toJSON(X))
+
+  metadata <- POST(url, body = body, encode = "json") %>%
+    content(as = "text") %>%
+    fromJSON() %>%
+    pluck("data") %>%
+    select(TargetSignature = signatureid, tissue, integratedMoas, GeneTargets) # where(~ any(!is.na(.x)))
 }
 
 combinations <- expand_grid(
@@ -190,14 +203,21 @@ filtered_05p_sinead <- data_files[str_detect(names(data_files), fixed("05p"))] |
   group_by(region, comparison, compound, cellline) |>
   filter(abs(similarity) == max(abs(similarity))) |>
   ungroup() |>
-  write_csv("results/cell-line-exploration/filtered_05p_sinead_drug_list_full.csv") |>
+  write_csv("results/cell-line-exploration/filtered_05p_sinead_drug_list_full.csv")
+
+metadata <- get_ilincs_metadata(unique(filtered_05p_sinead$signatureid)) |>
+  select(signatureid = TargetSignature, mechanism = integratedMoas)
+
+final_filtered_05p_sinead <- filtered_05p_sinead |>
+  left_join(metadata, by = "signatureid") |>
   select(-signatureid) |>
   filter(abs(similarity) > 0.321) |> # This is the only change from the previous script
   nest(.by = c(region, comparison, compound)) |>
   mutate(
     num_celllines = map_int(data, ~ length(unique(.x[["cellline"]]))),
     num_concordant = map_int(data, ~ sum(.x[["similarity"]] > 0L)),
-    num_discordant = map_int(data, ~ sum(.x[["similarity"]] < 0L))
+    num_discordant = map_int(data, ~ sum(.x[["similarity"]] < 0L)),
+    ratio = round(num_concordant / num_discordant, 8)
   ) |>
   filter(num_celllines > 1L) |>
   mutate(pivoted = map(data, ~ pivot_wider(.x, names_from = cellline, values_from = similarity))) |>
