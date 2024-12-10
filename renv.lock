@@ -1205,6 +1205,25 @@
       ],
       "Hash": "15e9634c0fcd294799e9b2e929ed1b86"
     },
+    "ggalign": {
+      "Package": "ggalign",
+      "Version": "0.0.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "cli",
+        "ggplot2",
+        "grid",
+        "gtable",
+        "lifecycle",
+        "methods",
+        "rlang",
+        "stats",
+        "utils",
+        "vctrs"
+      ],
+      "Hash": "febd9635fd0b904f34fcce68fea806eb"
+    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "3.5.1",
