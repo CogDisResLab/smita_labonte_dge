@@ -12,7 +12,8 @@ sheets <- human_files |>
   set_names(basename) |>
   map(~ excel_sheets(.x) |> keep(~ str_detect(.x, "[Ff]inal"))) |>
   enframe(name = "file", value = "sheets") |>
-  unnest(cols = sheets)
+  unnest(cols = sheets) |>
+  filter(sheets %in% c("Male_Final", "Female_Final", "Male_final", "Female_final"))
 
 sheet_data <- sheets |>
   mutate(
@@ -29,7 +30,7 @@ sheet_data <- sheets |>
         rename_with(~ str_replace_all(.x, " ", "_") |>
           str_squish() |>
           str_to_lower()) |>
-        slice_max(moa_count, n = 5, na_rm = TRUE) |>
+        slice_max(order_by = sum_discordant, n = 5) |>
         select(moa, sum_discordant, dis)
     )
   ) |>
@@ -57,7 +58,7 @@ create_bubble_plot <- function(dataset, label) {
     xlab("Brain Region") + ylab("Mechanism of Action") +
     scale_color_gradient(
       high = "white", low = "darkred",
-      name = NULL
+      name = "Discordance Score"
     ) +
     scale_size_continuous(range = c(5, 20), name = "# of Signatures") +
     theme(
@@ -72,7 +73,8 @@ create_bubble_plot <- function(dataset, label) {
           legend.key.width = unit(5, "lines"),
           legend.key.height = unit(50, "lines")
         )
-      )
+      ),
+      size = guide_bins(position = "bottom", theme = theme(legend.axis.line = element_blank()))
     )
 
 
@@ -98,3 +100,54 @@ female_data <- sheet_data |>
   separate_longer_delim(cols = moa, delim = "|")
 
 create_bubble_plot(female_data, "female")
+
+create_bubble_plot_faceted <- function(dataset, label) {
+  g <- ggplot(
+    dataset,
+    aes(
+      x = brain_region,
+      y = moa,
+      color = discordance_score,
+      size = discordant_signature_count
+    )
+  )
+
+  p <- g + geom_point(alpha = 0.75) +
+    theme_minimal() +
+    xlab("Brain Region") + ylab("Mechanism of Action") +
+    scale_color_gradient(
+      high = "white", low = "darkred",
+      name = "Discordance Score"
+    ) +
+    scale_size_continuous(range = c(5, 20), name = "# of Signatures") +
+    theme(
+      panel.background = element_blank(),
+      panel.border = element_rect(color = "black", fill = NA, linewidth = 1.2),
+      text = element_text(size = 28)
+    ) +
+    guides(
+      color = guide_colorbar(
+        position = "right", reverse = TRUE,
+        theme = theme(
+          legend.key.width = unit(5, "lines"),
+          legend.key.height = unit(50, "lines")
+        )
+      ),
+      size = guide_bins(theme = theme(legend.axis.line = element_blank()))
+    ) +
+    facet_wrap(~comparison, scales = "free_y")
+
+
+  ggsave(str_glue("{label}_moa_bubble_plot.png"), p,
+    bg = "white", width = 9 * 3, height = 9 * 3, path = "figures"
+  )
+  ggsave(str_glue("{label}_moa_bubble_plot.svg"), p,
+    bg = "white", width = 9 * 3, height = 9 * 3, path = "figures"
+  )
+}
+
+faceted_data <- sheet_data |>
+  filter(comparison %in% c("Female", "Male")) |>
+  separate_longer_delim(cols = moa, delim = "|")
+
+create_bubble_plot_faceted(faceted_data, "Both")
